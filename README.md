@@ -1,6 +1,6 @@
 # strolo-ui-components
 
-A home for all shared Strolo components. Let's not be savages who copy/paste components in different projects.
+A home for all shared Strolo components. Let's not be savages who copy/paste components to different projects.
 
 ## Installing this Package
 
