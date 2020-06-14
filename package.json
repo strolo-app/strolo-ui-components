@@ -7,11 +7,11 @@
     "lib/**/*"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf lib && tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json"
   },
-  "private": false,
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cody123Anderson/strolo-ui-components.git"
