@@ -1,0 +1,32 @@
+{
+  "name": "@cody123anderson/npm-ts-package2",
+  "version": "1.0.1",
+  "description": "A template for quickly creating NPM Typescript packages",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cody123Anderson/npm-ts-package.git"
+  },
+  "keywords": [],
+  "author": "Cody Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cody123Anderson/npm-ts-package/issues"
+  },
+  "homepage": "https://github.com/Cody123Anderson/npm-ts-package#readme",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.5"
+  }
+}
