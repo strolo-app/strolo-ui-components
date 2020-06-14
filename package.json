@@ -1,6 +1,6 @@
 {
-  "name": "@cody123anderson/npm-ts-package2",
-  "version": "1.0.1",
+  "name": "@strolo-fit/ui-components",
+  "version": "1.0.0",
   "description": "A template for quickly creating NPM Typescript packages",
   "main": "lib/index.js",
   "files": [
@@ -11,18 +11,18 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json"
   },
-  "private": false,
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cody123Anderson/npm-ts-package.git"
+    "url": "git+https://github.com/Cody123Anderson/strolo-ui-components.git"
   },
   "keywords": [],
-  "author": "Cody Anderson",
-  "license": "MIT",
+  "author": "Strolo Engineering",
+  "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/Cody123Anderson/npm-ts-package/issues"
+    "url": "https://github.com/Cody123Anderson/strolo-ui-components/issues"
   },
-  "homepage": "https://github.com/Cody123Anderson/npm-ts-package#readme",
+  "homepage": "https://github.com/Cody123Anderson/strolo-ui-components#readme",
   "devDependencies": {
     "prettier": "^2.0.5",
     "tslint": "^6.1.2",
