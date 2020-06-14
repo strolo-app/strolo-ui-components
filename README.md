@@ -4,7 +4,7 @@ A home for all shared Strolo components. Let's not be savages who copy/paste com
 
 ## Installing this Package
 
-`npm install git+ssh://git@github.com:strolo-app/strolo-ui-components`
+`npm install git+ssh://git@github.com:strolo-app/strolo-ui-components#v1.0.1`
 
 ## Creating a New Component
 
