@@ -2,31 +2,70 @@
   "name": "@strolo-fit/ui-components",
   "version": "1.0.1",
   "description": "A template for quickly creating NPM Typescript packages",
-  "main": "lib/index.js",
-  "files": [
-    "lib/**/*"
-  ],
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
   "scripts": {
-    "build": "rm -rf lib && tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json"
-  },
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Cody123Anderson/strolo-ui-components.git"
+    "build": "rollup -c",
+    "lint": "standard",
+    "format": "prettier-standard --format",
+    "test": "jest --coverage",
+    "storybook": "start-storybook"
   },
   "keywords": [],
-  "author": "Strolo Engineering",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/Cody123Anderson/strolo-ui-components/issues"
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16",
+    "react-dom": "^16"
   },
-  "homepage": "https://github.com/Cody123Anderson/strolo-ui-components#readme",
   "devDependencies": {
-    "prettier": "^2.0.5",
-    "tslint": "^6.1.2",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.9.5"
+    "@babel/core": "7.10.2",
+    "@storybook/addon-a11y": "5.3.19",
+    "@storybook/addon-docs": "5.3.19",
+    "@storybook/addon-viewport": "5.3.19",
+    "@storybook/react": "5.3.19",
+    "@testing-library/jest-dom": "5.10.1",
+    "@testing-library/react": "10.2.1",
+    "@types/jest": "^24.0.24",
+    "@types/react": "16.9.36",
+    "@types/react-dom": "16.9.8",
+    "awesome-typescript-loader": "5.2.1",
+    "babel-loader": "8.1.0",
+    "jest": "^24.9.0",
+    "react": "16.13.1",
+    "react-docgen-typescript-loader": "3.7.2",
+    "react-dom": "16.13.1",
+    "rollup": "^1.27.13",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "standard": "^14.3.1",
+    "standard-prettier": "^1.0.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "7.0.5",
+    "typescript": "^3.7.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "build/"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/",
+      "build/"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "test",
+      "expect",
+      "afterAll",
+      "jest"
+    ]
   }
 }
