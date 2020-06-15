@@ -18,3 +18,8 @@ A home for all shared Strolo components. Let's not be savages who copy/paste com
 1. Commit your changes
 2. `npm version <major|minor|patch>`
 3. `git push —-tags origin <branch-name>`
+
+
+## Notes
+
+https://levelup.gitconnected.com/create-a-react-component-library-with-typescript-and-storybook-ed28fc7511f2
