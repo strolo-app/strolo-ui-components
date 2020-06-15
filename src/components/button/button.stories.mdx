@@ -1,0 +1,31 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Button, ButtonProps } from './';
+
+<Meta title="Components/Button" component={Button} />
+
+# MyComponent
+
+This is the `MyComponent`
+
+```jsx
+import { Button } from '@strolo/ui-components';
+```
+
+<Preview withSource="open">
+  <Story name="MyComponent">
+    <Button />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Button} />
+
+## Using different Prop Name
+
+<Preview withSource="open">
+  <Story name="Different Prop Name">
+    <Button />
+  </Story>
+</Preview>
