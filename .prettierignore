@@ -1,1 +1,4 @@
 build/
+.plop/
+node_modules/
+coverage/

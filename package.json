@@ -7,8 +7,8 @@
   "jsnext:main": "build/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "lint": "standard",
-    "format": "prettier-standard --format",
+    "lint": "eslint \"**/*.+(js|ts|tsx|)\" --quiet --fix",
+    "format": "prettier \"src/**/*.+(js|ts|tsx|json|md|graphql)\" --write",
     "test": "jest --coverage",
     "storybook": "start-storybook"
   },
@@ -30,8 +30,18 @@
     "@types/jest": "^24.0.24",
     "@types/react": "16.9.36",
     "@types/react-dom": "16.9.8",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
     "awesome-typescript-loader": "5.2.1",
+    "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-react-app": "5.2.1",
+    "eslint-plugin-flowtype": "4.7.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "2.5.1",
     "jest": "^24.9.0",
     "react": "16.13.1",
     "react-docgen-typescript-loader": "3.7.2",
@@ -41,8 +51,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
-    "standard": "^14.3.1",
-    "standard-prettier": "^1.0.1",
     "ts-jest": "^24.2.0",
     "ts-loader": "7.0.5",
     "typescript": "^3.7.3"
@@ -52,20 +60,6 @@
     "testEnvironment": "jsdom",
     "testPathIgnorePatterns": [
       "build/"
-    ]
-  },
-  "standard": {
-    "ignore": [
-      "node_modules/",
-      "build/"
-    ],
-    "globals": [
-      "describe",
-      "it",
-      "test",
-      "expect",
-      "afterAll",
-      "jest"
     ]
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export interface ButtonProps {}
 
@@ -7,5 +7,5 @@ export const Button: React.FC<ButtonProps> = () => {
     <div>
       <span>Button</span>
     </div>
-  );
-};
+  )
+}
