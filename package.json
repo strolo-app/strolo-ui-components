@@ -12,6 +12,11 @@
     "test": "jest --coverage",
     "storybook": "start-storybook"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && git add ."
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -42,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "2.5.1",
+    "husky": "^4.2.5",
     "jest": "^24.9.0",
     "react": "16.13.1",
     "react-docgen-typescript-loader": "3.7.2",
