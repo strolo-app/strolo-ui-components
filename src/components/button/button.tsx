@@ -53,6 +53,7 @@ export const Button = styled.button.attrs((props: ButtonProps) => ({
   background: #000000;
   color: #ffffff;
   border: none;
+
   ${({ disabled }) =>
     !!disabled &&
     `
