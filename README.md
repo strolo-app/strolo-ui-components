@@ -15,7 +15,7 @@ A home for all shared Strolo components. Let's not be savages who copy/paste com
 
 ## Publishing Your Changes
 
-1. Commit your changes
+1. Commit your changes (build artifacts will be updated as part of a pre-commit hook)
 2. `npm version <major|minor|patch>`
 3. `git push —-tags origin <branch-name>`
 
