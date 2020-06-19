@@ -1143,6 +1143,29 @@ var curriedLighten = /*#__PURE__*/curry
 /* ::<number | string, string, string> */
 (lighten);
 
+var primaryFont = '"Source Sans Pro", sans-serif';
+var baseFontSize = '16px';
+var webTypeScale = {
+    h1: '5.25rem',
+    h2: '3.5rem',
+    h3: '2.5rem',
+    h4: '2rem',
+    h5: '1.5rem',
+    h6: '1.125rem',
+    p1: '1rem',
+    p2: '0.875rem',
+};
+var mobileTypeScale = {
+    h1: '3rem',
+    h2: '2.5rem',
+    h3: '2rem',
+    h4: '1.5rem',
+    h5: '1.125rem',
+    h6: '1rem',
+    p1: '1rem',
+    p2: '0.875rem',
+};
+
 var yellow = { 30: '#FFD600' };
 var blue = { 30: '#00E4F2' };
 var red = { 30: '#FE1C5F' };
@@ -1178,16 +1201,20 @@ var defaultTheme = {
         },
         gray: __assign({}, gray),
     },
+    typography: {
+        baseFontSize: baseFontSize,
+        typeScale: {
+            web: webTypeScale,
+            mobile: mobileTypeScale,
+        },
+    },
     elevation: {
         0: 'box-shadow: none;',
         1: "box-shadow: 0px 1px 0px " + gray[30],
     },
 };
 
-var primaryFont = '"Source Sans Pro", sans-serif';
-var baseFontSize = '16px';
-
-var GlobalStyle = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
+var GlobalStyle = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
 var templateObject_1;
 
 var BaseButton = styled.button.attrs(function (props) { return ({

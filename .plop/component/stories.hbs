@@ -1,23 +1,11 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import React from 'react'
+import { withKnobs, number } from '@storybook/addon-knobs'
 
-import { {{ pascalCase name }}, {{ pascalCase name }}Props } from './'
+import { {{ pascalCase name }} } from './logo'
 
-<Meta title="Components/{{ pascalCase name }}" component={{{ pascalCase name }}} />
+export default {
+  title: '{{ pascalCase name }}',
+  decorators: [withKnobs],
+}
 
-# MyComponent
-
-This is the `MyComponent`
-
-```jsx
-import { {{ pascalCase name }} } from '@strolo-fit/ui-components'
-```
-
-<Preview withSource="open">
-  <Story name="{{ pascalCase name }}">
-    <{{ pascalCase name }} />
-  </Story>
-</Preview>
-
-## Props
-
-<Props of={ {{ pascalCase name }} } />
+export const Component = () => <{{ pascalCase name }} />

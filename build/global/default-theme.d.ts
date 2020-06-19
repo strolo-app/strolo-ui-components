@@ -29,6 +29,31 @@ export declare const defaultTheme: {
             0: string;
         };
     };
+    typography: {
+        baseFontSize: string;
+        typeScale: {
+            web: {
+                h1: string;
+                h2: string;
+                h3: string;
+                h4: string;
+                h5: string;
+                h6: string;
+                p1: string;
+                p2: string;
+            };
+            mobile: {
+                h1: string;
+                h2: string;
+                h3: string;
+                h4: string;
+                h5: string;
+                h6: string;
+                p1: string;
+                p2: string;
+            };
+        };
+    };
     elevation: {
         0: string;
         1: string;

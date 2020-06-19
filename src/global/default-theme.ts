@@ -1,4 +1,5 @@
 import { lighten } from 'polished'
+import { baseFontSize, webTypeScale, mobileTypeScale } from './typography'
 
 const yellow = { 30: '#FFD600' }
 const blue = { 30: '#00E4F2' }
@@ -38,6 +39,14 @@ export const defaultTheme = {
 
     gray: {
       ...gray,
+    },
+  },
+
+  typography: {
+    baseFontSize: baseFontSize,
+    typeScale: {
+      web: webTypeScale,
+      mobile: mobileTypeScale,
     },
   },
 
