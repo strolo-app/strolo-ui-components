@@ -1,13 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export interface ButtonProps {
   size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
-  variant?: 'contained' | 'outlined' | 'text'
+  color?: 'energy' | 'primary'
+  // variant?: 'contained' | 'outlined' | 'text'
 }
 
-export const Button = styled.button.attrs((props: ButtonProps) => ({
+const BaseButton = styled.button.attrs((props: ButtonProps) => ({
   size: props.size || 'normal',
+  color: props.color || 'primary',
 }))`
+  outline: none;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -16,7 +19,7 @@ export const Button = styled.button.attrs((props: ButtonProps) => ({
   font-style: italic;
   font-weight: 900;
   text-transform: uppercase;
-  transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 
   height: ${({ size = 'normal' }) => {
     switch (size) {
@@ -49,16 +52,52 @@ export const Button = styled.button.attrs((props: ButtonProps) => ({
         return '12px 0px;'
     }
   }};
+`
 
+const disabledStyle = css`
+  background-color: ${({ theme }) => theme.palette.gray[10]};
+  color: ${({ theme }) => theme.palette.gray[45]};
+  cursor: not-allowed;
+`
+
+const primaryStyle = css`
   background: #000000;
   color: #ffffff;
-  border: none;
 
-  ${({ disabled }) =>
-    !!disabled &&
-    `
-    background-color: #EEEEEF;
-    color: #72757E;
-    cursor: not-allowed;
-  `}
+  &:focus {
+    border: 2px solid ${(props) => props.theme.palette.gray[50]};
+    padding: 0 14px;
+  }
+  &:hover {
+    background: ${({ theme }) => theme.palette.primary.light};
+  }
+  &:active {
+    border: none;
+    padding: 0 16px;
+  }
+`
+
+const energyStyle = css`
+  background: ${({ theme }) => theme.palette.energy.main};
+  color: ${({ theme }) => theme.palette.energy.contrastText};
+
+  &:focus {
+    border: 2px solid ${(props) => props.theme.palette.gray[50]};
+    padding: 0 14px;
+  }
+  &:hover {
+    background: ${({ theme }) => theme.palette.energy.light};
+  }
+  &:active {
+    border: none;
+    padding: 0 16px;
+  }
+`
+
+export const Button = styled(BaseButton).attrs((props: ButtonProps) => ({
+  color: props.color || 'primary',
+}))`
+  border: none;
+  ${({ disabled, color }) =>
+    !!disabled ? disabledStyle : color === 'primary' ? primaryStyle : energyStyle}
 `

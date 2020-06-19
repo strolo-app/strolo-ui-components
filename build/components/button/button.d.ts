@@ -1,7 +1,10 @@
 export interface ButtonProps {
     size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge';
-    variant?: 'contained' | 'outlined' | 'text';
+    color?: 'energy' | 'primary';
 }
 export declare const Button: import("styled-components").StyledComponent<"button", any, {
     size: "tiny" | "small" | "normal" | "large" | "huge";
-}, "size">;
+    color: "energy" | "primary";
+} & {
+    color: "energy" | "primary";
+}, "color" | "size">;

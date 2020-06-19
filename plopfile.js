@@ -1,11 +1,11 @@
-const path = require('path');
-const fs = require('fs');
+const path = require('path')
+const fs = require('fs')
 
 module.exports = function (plop) {
-  plop.addHelper('cwd', () => process.cwd());
+  plop.addHelper('cwd', () => process.cwd())
   plop.addHelper('src', () => {
-    return `${plop.getPlopfilePath()}/src`;
-  });
+    return `${plop.getPlopfilePath()}/src`
+  })
 
   plop.setGenerator('component', {
     description: 'Create a component',
@@ -16,9 +16,9 @@ module.exports = function (plop) {
         message: 'Component name?',
         validate: (value) => {
           if (value.length) {
-            return true;
+            return true
           }
-          return 'name is required';
+          return 'name is required'
         },
       },
     ],
@@ -30,9 +30,14 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
+        path: '{{src}}/components/{{kebabCase name}}/{{kebabCase name}}.stories.mdx',
+        templateFile: '.plop/component/stories.hbs',
+      },
+      {
+        type: 'add',
         path: '{{src}}/components/{{kebabCase name}}/index.ts',
         templateFile: '.plop/component/index.hbs',
       },
     ],
-  });
-};
+  })
+}

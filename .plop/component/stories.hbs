@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+
+import { {{ pascalCase name }}, {{ pascalCase name }}Props } from './'
+
+<Meta title="Components/{{ pascalCase name }}" component={{{ pascalCase name }}} />
+
+# MyComponent
+
+This is the `MyComponent`
+
+```jsx
+import { {{ pascalCase name }} } from '@strolo-fit/ui-components'
+```
+
+<Preview withSource="open">
+  <Story name="{{ pascalCase name }}">
+    <{{ pascalCase name }} />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ {{ pascalCase name }} } />

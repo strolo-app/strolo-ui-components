@@ -23,3 +23,17 @@ A home for all shared Strolo components. Let's not be savages who copy/paste com
 ## Notes
 
 https://levelup.gitconnected.com/create-a-react-component-library-with-typescript-and-storybook-ed28fc7511f2
+
+### Linking to another project
+
+in consumer project:
+
+`cd ./strolo-web/node_modules/react && npm link && cd ../react-dom && npm link && cd ../../../strolo-ui-components && npm link react react-dom styled-components && npm link && cd ../strolo-web && npm link @strolo-fit/ui-components && cd ../`
+
+in this project:
+
+`npm link react && npm link react-dom`
+
+in consumer project:
+
+`npm link @strolo-fit/ui-components`

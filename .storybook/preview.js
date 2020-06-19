@@ -4,7 +4,6 @@ import { withContexts } from '@storybook/addon-contexts/react'
 import { contexts } from './contexts'
 import { withA11y } from '@storybook/addon-a11y'
 import { GlobalStyle } from '../src/global/global-styles'
-import 'normalize.css'
 
 addParameters({
   backgrounds: [

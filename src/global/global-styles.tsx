@@ -1,8 +1,21 @@
 import { createGlobalStyle } from 'styled-components'
+import { normalize } from 'polished'
+import { primaryFont, baseFontSize } from './typography'
 
 export const GlobalStyle = createGlobalStyle`
+  ${normalize()}
+
+  html {
+    box-sizing: border-box;
+    font-size: ${baseFontSize}
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
   body {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: '16px';
+    font-family: ${primaryFont};
+    font-size: ${baseFontSize};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 `
