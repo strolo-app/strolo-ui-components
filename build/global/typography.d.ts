@@ -9,6 +9,7 @@ export declare const webTypeScale: {
     h6: string;
     p1: string;
     p2: string;
+    sub: string;
 };
 export declare const mobileTypeScale: {
     h1: string;
@@ -19,4 +20,5 @@ export declare const mobileTypeScale: {
     h6: string;
     p1: string;
     p2: string;
+    sub: string;
 };

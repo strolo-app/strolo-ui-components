@@ -3,12 +3,15 @@ import styled, { css } from 'styled-components'
 export interface ButtonProps {
   size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
   color?: 'energy' | 'primary'
-  // variant?: 'contained' | 'outlined' | 'text'
+  fullWidth?: boolean
+  variant?: 'contained' | 'outlined' | 'text'
 }
 
 const BaseButton = styled.button.attrs((props: ButtonProps) => ({
   size: props.size || 'normal',
   color: props.color || 'primary',
+  fullWidth: props.fullWidth || false,
+  variant: props.variant || 'contained',
 }))`
   outline: none;
   display: flex;
@@ -19,39 +22,50 @@ const BaseButton = styled.button.attrs((props: ButtonProps) => ({
   font-style: italic;
   font-weight: 900;
   text-transform: uppercase;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
+  text-align: center;
+  justify-content: center;
+  ${({ fullWidth }) => (fullWidth ? `width: 100%;` : `width: fit-content;`)}
 
-  height: ${({ size = 'normal' }) => {
+  ${({ size }) => {
     switch (size) {
       case 'tiny':
-        return '36px'
+        return `
+          height: 36px;
+          border-radius: 8px 0px;
+          font-size: 0.75rem;
+        `
       case 'small':
-        return '40px'
+        return `
+          height: 40px;
+          border-radius: 10px 0px;
+          font-size: 0.875rem;
+        `
       case 'large':
-        return '48px'
+        return `
+          height: 48px;
+          border-radius: 16px 0px;
+          font-size: 1rem;
+        `
       case 'huge':
-        return '52px'
+        return `
+          height: 52px;
+          border-radius: 18px 0px;
+          font-size: 1.125rem;
+        `
       case 'normal':
       default:
-        return '44px'
+        return `
+          height: 44px;
+          border-radius: 12px 0px;
+          font-size: 1rem;
+        `
     }
-  }};
+  }}
 
-  border-radius: ${({ size = 'normal' }) => {
-    switch (size) {
-      case 'tiny':
-        return '8px 0px;'
-      case 'small':
-        return '10px 0px;'
-      case 'large':
-        return '16px 0px;'
-      case 'huge':
-        return '18px 0px;'
-      case 'normal':
-      default:
-        return '12px 0px;'
-    }
-  }};
+  &:active {
+    transform: scale(0.95, 0.95);
+  }
 `
 
 const disabledStyle = css`
@@ -60,44 +74,89 @@ const disabledStyle = css`
   cursor: not-allowed;
 `
 
-const primaryStyle = css`
-  background: #000000;
+const primaryStyleContained = css`
+  border: none;
+  background-color: #000000;
   color: #ffffff;
 
   &:focus {
-    border: 2px solid ${(props) => props.theme.palette.gray[50]};
-    padding: 0 14px;
+    background-color: ${({ theme }) => theme.palette.primary.light};
   }
   &:hover {
-    background: ${({ theme }) => theme.palette.primary.light};
-  }
-  &:active {
-    border: none;
-    padding: 0 16px;
+    background-color: ${({ theme }) => theme.palette.primary.light};
   }
 `
 
-const energyStyle = css`
-  background: ${({ theme }) => theme.palette.energy.main};
+const primaryStyleOutlined = css`
+  border: 2px solid ${({ theme }) => theme.palette.gray[60]};
+  color: ${({ theme }) => theme.palette.gray[60]};
+  background-color: rgba(0, 0, 0, 0);
+
+  &:focus,
+  &:hover {
+    border: 3px solid ${({ theme }) => theme.palette.gray[60]};
+    padding: 0 15px;
+  }
+`
+
+const energyStyleContained = css`
+  border: none;
+  background-color: ${({ theme }) => theme.palette.energy.main};
   color: ${({ theme }) => theme.palette.energy.contrastText};
 
   &:focus {
-    border: 2px solid ${(props) => props.theme.palette.gray[50]};
-    padding: 0 14px;
+    background-color: ${({ theme }) => theme.palette.energy.light};
   }
   &:hover {
-    background: ${({ theme }) => theme.palette.energy.light};
-  }
-  &:active {
-    border: none;
-    padding: 0 16px;
+    background-color: ${({ theme }) => theme.palette.energy.light};
   }
 `
 
-export const Button = styled(BaseButton).attrs((props: ButtonProps) => ({
-  color: props.color || 'primary',
-}))`
-  border: none;
-  ${({ disabled, color }) =>
-    !!disabled ? disabledStyle : color === 'primary' ? primaryStyle : energyStyle}
+const energyStyleOutlined = css`
+  border: 2px solid ${({ theme }) => theme.palette.energy.main};
+  color: ${({ theme }) => theme.palette.energy.main};
+  background-color: rgba(0, 0, 0, 0);
+
+  &:focus,
+  &:hover {
+    border: 3px solid ${({ theme }) => theme.palette.energy.main};
+    padding: 0 15px;
+  }
 `
+
+export const Button = styled(BaseButton)`
+  ${({ disabled, color, variant }) => {
+    if (disabled) return disabledStyle
+    if (variant === 'outlined') {
+      if (color === 'energy') return energyStyleOutlined
+      else {
+        return primaryStyleOutlined
+      }
+    }
+    if (color === 'energy') return energyStyleContained
+    else {
+      return primaryStyleContained
+    }
+  }}
+`
+
+// &:active {
+//   height: 34px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 38px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 46px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 50px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 42px;
+//   transform: translate(3px, 1px);
+// }

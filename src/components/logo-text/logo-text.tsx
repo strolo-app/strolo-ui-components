@@ -14,8 +14,8 @@ export const LogoText: React.FC<LogoTextProps & React.SVGProps<SVGSVGElement>> =
 }) => {
   return (
     <svg
-      width="219"
-      height="35"
+      width={width}
+      height={height}
       viewBox="0 0 219 35"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

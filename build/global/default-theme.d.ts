@@ -41,6 +41,7 @@ export declare const defaultTheme: {
                 h6: string;
                 p1: string;
                 p2: string;
+                sub: string;
             };
             mobile: {
                 h1: string;
@@ -51,6 +52,7 @@ export declare const defaultTheme: {
                 h6: string;
                 p1: string;
                 p2: string;
+                sub: string;
             };
         };
     };

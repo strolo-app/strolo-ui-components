@@ -52,6 +52,6 @@ export const defaultTheme = {
 
   elevation: {
     0: 'box-shadow: none;',
-    1: `box-shadow: 0px 1px 0px ${gray[30]}`,
+    1: `box-shadow: 0px 1px 0px ${gray[30]};`,
   },
 }

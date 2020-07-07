@@ -10,6 +10,7 @@ export const webTypeScale = {
   h6: '1.125rem', // 18
   p1: '1rem', // 16
   p2: '0.875rem', // 14
+  sub: '0.75rem', // 12
 }
 
 export const mobileTypeScale = {
@@ -21,4 +22,5 @@ export const mobileTypeScale = {
   h6: '1rem', // 16
   p1: '1rem', // 16
   p2: '0.875rem', // 14
+  sub: '0.75', // 12
 }

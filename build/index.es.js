@@ -1154,6 +1154,7 @@ var webTypeScale = {
     h6: '1.125rem',
     p1: '1rem',
     p2: '0.875rem',
+    sub: '0.75rem',
 };
 var mobileTypeScale = {
     h1: '3rem',
@@ -1164,6 +1165,7 @@ var mobileTypeScale = {
     h6: '1rem',
     p1: '1rem',
     p2: '0.875rem',
+    sub: '0.75',
 };
 
 var yellow = { 30: '#FFD600' };
@@ -1210,7 +1212,7 @@ var defaultTheme = {
     },
     elevation: {
         0: 'box-shadow: none;',
-        1: "box-shadow: 0px 1px 0px " + gray[30],
+        1: "box-shadow: 0px 1px 0px " + gray[30] + ";",
     },
 };
 
@@ -1220,37 +1222,26 @@ var templateObject_1;
 var BaseButton = styled.button.attrs(function (props) { return ({
     size: props.size || 'normal',
     color: props.color || 'primary',
-}); })(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.5s ease-in-out;\n\n  height: ", ";\n\n  border-radius: ", ";\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.5s ease-in-out;\n\n  height: ",
-    ";\n\n  border-radius: ",
-    ";\n"])), function (_a) {
-    var _b = _a.size, size = _b === void 0 ? 'normal' : _b;
-    switch (size) {
-        case 'tiny':
-            return '36px';
-        case 'small':
-            return '40px';
-        case 'large':
-            return '48px';
-        case 'huge':
-            return '52px';
-        case 'normal':
-        default:
-            return '44px';
-    }
+    fullWidth: props.fullWidth || false,
+    variant: props.variant || 'contained',
+}); })(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
+    "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"])), function (_a) {
+    var fullWidth = _a.fullWidth;
+    return (fullWidth ? "width: 100%;" : "width: fit-content;");
 }, function (_a) {
-    var _b = _a.size, size = _b === void 0 ? 'normal' : _b;
+    var size = _a.size;
     switch (size) {
         case 'tiny':
-            return '8px 0px;';
+            return "\n          height: 36px;\n          border-radius: 8px 0px;\n          font-size: 0.75rem;\n        ";
         case 'small':
-            return '10px 0px;';
+            return "\n          height: 40px;\n          border-radius: 10px 0px;\n          font-size: 0.875rem;\n        ";
         case 'large':
-            return '16px 0px;';
+            return "\n          height: 48px;\n          border-radius: 16px 0px;\n          font-size: 1rem;\n        ";
         case 'huge':
-            return '18px 0px;';
+            return "\n          height: 52px;\n          border-radius: 18px 0px;\n          font-size: 1.125rem;\n        ";
         case 'normal':
         default:
-            return '12px 0px;';
+            return "\n          height: 44px;\n          border-radius: 12px 0px;\n          font-size: 1rem;\n        ";
     }
 });
 var disabledStyle = css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"], ["\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"])), function (_a) {
@@ -1260,28 +1251,106 @@ var disabledStyle = css(templateObject_2 || (templateObject_2 = __makeTemplateOb
     var theme = _a.theme;
     return theme.palette.gray[45];
 });
-var primaryStyle = css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  background: #000000;\n  color: #ffffff;\n\n  &:focus {\n    border: 2px solid ", ";\n    padding: 0 14px;\n  }\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    border: none;\n    padding: 0 16px;\n  }\n"], ["\n  background: #000000;\n  color: #ffffff;\n\n  &:focus {\n    border: 2px solid ", ";\n    padding: 0 14px;\n  }\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    border: none;\n    padding: 0 16px;\n  }\n"])), function (props) { return props.theme.palette.gray[50]; }, function (_a) {
+var primaryStyleContained = css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  border: none;\n  background-color: #000000;\n  color: #ffffff;\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  border: none;\n  background-color: #000000;\n  color: #ffffff;\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.palette.primary.light;
+}, function (_a) {
     var theme = _a.theme;
     return theme.palette.primary.light;
 });
-var energyStyle = css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  background: ", ";\n  color: ", ";\n\n  &:focus {\n    border: 2px solid ", ";\n    padding: 0 14px;\n  }\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    border: none;\n    padding: 0 16px;\n  }\n"], ["\n  background: ", ";\n  color: ", ";\n\n  &:focus {\n    border: 2px solid ", ";\n    padding: 0 14px;\n  }\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    border: none;\n    padding: 0 16px;\n  }\n"])), function (_a) {
+var primaryStyleOutlined = css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.palette.gray[60];
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.palette.gray[60];
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.palette.gray[60];
+});
+var energyStyleContained = css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.palette.energy.main;
 }, function (_a) {
     var theme = _a.theme;
     return theme.palette.energy.contrastText;
-}, function (props) { return props.theme.palette.gray[50]; }, function (_a) {
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.palette.energy.light;
+}, function (_a) {
     var theme = _a.theme;
     return theme.palette.energy.light;
 });
-var Button = styled(BaseButton).attrs(function (props) { return ({
-    color: props.color || 'primary',
-}); })(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  border: none;\n  ", "\n"], ["\n  border: none;\n  ",
-    "\n"])), function (_a) {
-    var disabled = _a.disabled, color = _a.color;
-    return !!disabled ? disabledStyle : color === 'primary' ? primaryStyle : energyStyle;
+var energyStyleOutlined = css(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.palette.energy.main;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.palette.energy.main;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.palette.energy.main;
 });
-var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+var Button = styled(BaseButton)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
+    "\n"
+    // &:active {
+    //   height: 34px;
+    //   transform: translate(3px, 1px);
+    // }
+    // &:active {
+    //   height: 38px;
+    //   transform: translate(3px, 1px);
+    // }
+    // &:active {
+    //   height: 46px;
+    //   transform: translate(3px, 1px);
+    // }
+    // &:active {
+    //   height: 50px;
+    //   transform: translate(3px, 1px);
+    // }
+    // &:active {
+    //   height: 42px;
+    //   transform: translate(3px, 1px);
+    // }
+])), function (_a) {
+    var disabled = _a.disabled, color = _a.color, variant = _a.variant;
+    if (disabled)
+        return disabledStyle;
+    if (variant === 'outlined') {
+        if (color === 'energy')
+            return energyStyleOutlined;
+        else {
+            return primaryStyleOutlined;
+        }
+    }
+    if (color === 'energy')
+        return energyStyleContained;
+    else {
+        return primaryStyleContained;
+    }
+});
+var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
+// &:active {
+//   height: 34px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 38px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 46px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 50px;
+//   transform: translate(3px, 1px);
+// }
+// &:active {
+//   height: 42px;
+//   transform: translate(3px, 1px);
+// }
 
 var Logo = function (_a) {
     var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 50 : _c, _d = _a.height, height = _d === void 0 ? 82 : _d, props = __rest(_a, ["color", "width", "height"]);
@@ -1291,8 +1360,8 @@ var Logo = function (_a) {
 };
 
 var LogoText = function (_a) {
-    var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, _d = _a.height, props = __rest(_a, ["color", "width", "height"]);
-    return (React.createElement("svg", __assign({ width: "219", height: "35", viewBox: "0 0 219 35", fill: "none", xmlns: "http://www.w3.org/2000/svg" }, props),
+    var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 296 : _c, _d = _a.height, height = _d === void 0 ? 35 : _d, props = __rest(_a, ["color", "width", "height"]);
+    return (React.createElement("svg", __assign({ width: width, height: height, viewBox: "0 0 219 35", fill: "none", xmlns: "http://www.w3.org/2000/svg" }, props),
         React.createElement("path", { d: "M12.0085 35C9.92296 35 7.82064 34.5153 5.7015 33.546C3.61599 32.542 1.7155 30.863 0 28.5089L5.75195 23.8353C6.62652 25.047 7.66927 26.0336 8.88021 26.7953C10.0911 27.5569 11.3357 27.9377 12.6139 27.9377C13.7912 27.9377 14.7163 27.678 15.389 27.1588C16.0954 26.6395 16.4486 25.9125 16.4486 24.9777C16.4486 24.2161 16.1122 23.6103 15.4395 23.1602C14.7667 22.6756 13.8585 22.0697 12.7148 21.3427L9.88933 19.5252C8.37565 18.5213 7.18153 17.3615 6.30697 16.046C5.46604 14.7305 5.04557 13.0168 5.04557 10.905C5.04557 9.3818 5.36513 7.96241 6.00423 6.64688C6.64334 5.33136 7.50109 4.18892 8.57748 3.21959C9.65386 2.21563 10.9153 1.4367 12.3617 0.88279C13.8417 0.294263 15.4226 0 17.1045 0C19.0218 0 20.855 0.467359 22.6042 1.40208C24.3869 2.30218 25.9511 3.58309 27.2966 5.24481L22.251 10.1261C21.4101 9.26063 20.5523 8.55094 19.6777 7.99703C18.8368 7.44313 17.8782 7.16617 16.8018 7.16617C15.6245 7.16617 14.7499 7.46044 14.1781 8.04896C13.6062 8.60287 13.3203 9.27794 13.3203 10.0742C13.3203 10.7666 13.6567 11.3551 14.3294 11.8398C15.0358 12.2898 16.0449 12.9476 17.3568 13.8131L20.3841 15.7344C21.9651 16.7384 23.0919 17.8462 23.7647 19.0579C24.471 20.2349 24.8242 21.8101 24.8242 23.7834C24.8242 25.3412 24.5215 26.7953 23.916 28.1454C23.3106 29.4956 22.4528 30.6899 21.3428 31.7285C20.2328 32.7324 18.8873 33.5287 17.3063 34.1172C15.7254 34.7057 13.9594 35 12.0085 35Z", fill: color }),
         React.createElement("path", { d: "M42.0202 34.3769L47.1667 7.5816H38.8919L40.2038 0.623147H64.8262L63.5143 7.5816H55.2396L50.0931 34.3769H42.0202Z", fill: color }),
         React.createElement("path", { d: "M72.7497 34.3769L79.3089 0.623147H90.1065C91.7547 0.623147 93.2852 0.778933 94.6979 1.09051C96.1107 1.40208 97.3384 1.92137 98.3812 2.64837C99.424 3.34075 100.231 4.25816 100.803 5.40059C101.409 6.54303 101.711 7.92779 101.711 9.5549C101.711 11.1128 101.509 12.5321 101.106 13.8131C100.736 15.0593 100.198 16.1845 99.4912 17.1884C98.7849 18.1578 97.9439 19.0059 96.9684 19.7329C95.993 20.4253 94.9334 20.9965 93.7897 21.4466L98.6839 34.3769H90.2074L86.4232 22.7448H83.0427L80.8226 34.3769H72.7497ZM84.3545 16.2018H87.2809C89.4674 16.2018 91.0819 15.7171 92.1247 14.7478C93.2011 13.7438 93.7393 12.4283 93.7393 10.8012C93.7393 9.5549 93.3188 8.63749 92.4779 8.04896C91.6706 7.46044 90.5101 7.16617 88.9964 7.16617H86.07L84.3545 16.2018Z", fill: color }),
