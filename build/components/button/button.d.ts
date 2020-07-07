@@ -1,12 +1,12 @@
-export interface ButtonProps {
-    size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge';
-    color?: 'energy' | 'primary';
-    fullWidth?: boolean;
+/// <reference types="react" />
+interface StyledButtonProps {
+    size: 'tiny' | 'small' | 'normal' | 'large' | 'huge';
+    color: 'energy' | 'primary';
+    fullWidth: boolean;
+}
+export interface ButtonProps extends Partial<StyledButtonProps> {
+    disabled?: boolean;
     variant?: 'contained' | 'outlined' | 'text';
 }
-export declare const Button: import("styled-components").StyledComponent<"button", any, {
-    size: "tiny" | "small" | "normal" | "large" | "huge";
-    color: "energy" | "primary";
-    fullWidth: boolean;
-    variant: "contained" | "outlined" | "text";
-}, "color" | "size" | "fullWidth" | "variant">;
+export declare const Button: ({ disabled, variant, size, color, fullWidth, ...props }: ButtonProps) => JSX.Element;
+export {};

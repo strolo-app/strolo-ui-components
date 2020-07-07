@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import React from 'react';
 
 /*! *****************************************************************************
@@ -1181,6 +1181,29 @@ var gray = {
     10: '#FAFAFA',
     0: '#fff',
 };
+// const customMediaQuery = (maxWidth: number) =>
+//   `@media (max-width: ${maxWidth}px)`;
+// const media = {
+//   custom: customMediaQuery,
+//   desktop: customMediaQuery(922),
+//   tablet: customMediaQuery(768),
+//   phone: customMediaQuery(576),
+// };
+// const Content = styled.div`
+//   height: 3em;
+//   width: 3em;
+//   background: papayawhip;
+//   /* Now we have our methods on media and can use them instead of raw queries */
+//   ${media.desktop} {
+//     background: dodgerblue;
+//   }
+//   ${media.tablet} {
+//     background: mediumseagreen;
+//   }
+//   ${media.phone} {
+//     background: palevioletred;
+//   }
+// `;
 var defaultTheme = {
     palette: {
         energy: {
@@ -1219,12 +1242,7 @@ var defaultTheme = {
 var GlobalStyle = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
 var templateObject_1;
 
-var BaseButton = styled.button.attrs(function (props) { return ({
-    size: props.size || 'normal',
-    color: props.color || 'primary',
-    fullWidth: props.fullWidth || false,
-    variant: props.variant || 'contained',
-}); })(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
+var BaseButton = styled.button(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
     "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"])), function (_a) {
     var fullWidth = _a.fullWidth;
     return (fullWidth ? "width: 100%;" : "width: fit-content;");
@@ -1244,113 +1262,44 @@ var BaseButton = styled.button.attrs(function (props) { return ({
             return "\n          height: 44px;\n          border-radius: 12px 0px;\n          font-size: 1rem;\n        ";
     }
 });
-var disabledStyle = css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"], ["\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"])), function (_a) {
+var DisabledButton = styled(BaseButton)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"], ["\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"])), function (_a) {
     var theme = _a.theme;
     return theme.palette.gray[10];
 }, function (_a) {
     var theme = _a.theme;
     return theme.palette.gray[45];
 });
-var primaryStyleContained = css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  border: none;\n  background-color: #000000;\n  color: #ffffff;\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  border: none;\n  background-color: #000000;\n  color: #ffffff;\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.palette.primary.light;
+var ContainedButton = styled(BaseButton)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n\n  &:focus,\n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n\n  &:focus,\n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return theme.palette[color].main;
 }, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.primary.light;
+    var theme = _a.theme, color = _a.color;
+    return theme.palette[color].contrastText;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return theme.palette[color].light;
 });
-var primaryStyleOutlined = css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.palette.gray[60];
+var OutlinedButton = styled(BaseButton)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"])), function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return theme.palette[color].main;
 }, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.gray[60];
+    var theme = _a.theme, color = _a.color;
+    return theme.palette[color].main;
 }, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.gray[60];
+    var theme = _a.theme, color = _a.color;
+    return theme.palette[color].main;
 });
-var energyStyleContained = css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"], ["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n\n  &:focus {\n    background-color: ", ";\n  }\n  &:hover {\n    background-color: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.main;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.contrastText;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.light;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.light;
-});
-var energyStyleOutlined = css(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  color: ", ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid ", ";\n    padding: 0 15px;\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.main;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.main;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.palette.energy.main;
-});
-var Button = styled(BaseButton)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
-    "\n"
-    // &:active {
-    //   height: 34px;
-    //   transform: translate(3px, 1px);
-    // }
-    // &:active {
-    //   height: 38px;
-    //   transform: translate(3px, 1px);
-    // }
-    // &:active {
-    //   height: 46px;
-    //   transform: translate(3px, 1px);
-    // }
-    // &:active {
-    //   height: 50px;
-    //   transform: translate(3px, 1px);
-    // }
-    // &:active {
-    //   height: 42px;
-    //   transform: translate(3px, 1px);
-    // }
-])), function (_a) {
-    var disabled = _a.disabled, color = _a.color, variant = _a.variant;
-    if (disabled)
-        return disabledStyle;
+var Button = function (_a) {
+    var disabled = _a.disabled, _b = _a.variant, variant = _b === void 0 ? 'contained' : _b, _c = _a.size, size = _c === void 0 ? 'normal' : _c, _d = _a.color, color = _d === void 0 ? 'primary' : _d, _e = _a.fullWidth, fullWidth = _e === void 0 ? false : _e, props = __rest(_a, ["disabled", "variant", "size", "color", "fullWidth"]);
+    if (disabled) {
+        return React.createElement(DisabledButton, __assign({ size: size, color: color, fullWidth: fullWidth }, props));
+    }
     if (variant === 'outlined') {
-        if (color === 'energy')
-            return energyStyleOutlined;
-        else {
-            return primaryStyleOutlined;
-        }
+        return React.createElement(OutlinedButton, __assign({ size: size, color: color, fullWidth: fullWidth }, props));
     }
-    if (color === 'energy')
-        return energyStyleContained;
-    else {
-        return primaryStyleContained;
-    }
-});
-var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
-// &:active {
-//   height: 34px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 38px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 46px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 50px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 42px;
-//   transform: translate(3px, 1px);
-// }
+    return React.createElement(ContainedButton, __assign({ size: size, color: color, fullWidth: fullWidth }, props));
+};
+var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4;
 
 var Logo = function (_a) {
     var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 50 : _c, _d = _a.height, height = _d === void 0 ? 82 : _d, props = __rest(_a, ["color", "width", "height"]);

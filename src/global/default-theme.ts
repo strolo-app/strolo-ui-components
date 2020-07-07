@@ -1,3 +1,4 @@
+// import { DefaultTheme } from 'styled-components'
 import { lighten } from 'polished'
 import { baseFontSize, webTypeScale, mobileTypeScale } from './typography'
 
@@ -15,6 +16,30 @@ const gray = {
   10: '#FAFAFA',
   0: '#fff',
 }
+
+// const customMediaQuery = (maxWidth: number) =>
+//   `@media (max-width: ${maxWidth}px)`;
+// const media = {
+//   custom: customMediaQuery,
+//   desktop: customMediaQuery(922),
+//   tablet: customMediaQuery(768),
+//   phone: customMediaQuery(576),
+// };
+// const Content = styled.div`
+//   height: 3em;
+//   width: 3em;
+//   background: papayawhip;
+//   /* Now we have our methods on media and can use them instead of raw queries */
+//   ${media.desktop} {
+//     background: dodgerblue;
+//   }
+//   ${media.tablet} {
+//     background: mediumseagreen;
+//   }
+//   ${media.phone} {
+//     background: palevioletred;
+//   }
+// `;
 
 export const defaultTheme = {
   palette: {
@@ -54,4 +79,9 @@ export const defaultTheme = {
     0: 'box-shadow: none;',
     1: `box-shadow: 0px 1px 0px ${gray[30]};`,
   },
+}
+
+declare module 'styled-components' {
+  type Theme = typeof defaultTheme
+  export interface DefaultTheme extends Theme {}
 }

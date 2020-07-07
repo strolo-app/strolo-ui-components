@@ -1,18 +1,18 @@
-import styled, { css } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 
-export interface ButtonProps {
-  size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
-  color?: 'energy' | 'primary'
-  fullWidth?: boolean
+interface StyledButtonProps {
+  size: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
+  color: 'energy' | 'primary'
+  fullWidth: boolean
+}
+
+export interface ButtonProps extends Partial<StyledButtonProps> {
+  disabled?: boolean
   variant?: 'contained' | 'outlined' | 'text'
 }
 
-const BaseButton = styled.button.attrs((props: ButtonProps) => ({
-  size: props.size || 'normal',
-  color: props.color || 'primary',
-  fullWidth: props.fullWidth || false,
-  variant: props.variant || 'contained',
-}))`
+const BaseButton = styled.button<StyledButtonProps>`
   outline: none;
   display: flex;
   align-items: center;
@@ -68,95 +68,48 @@ const BaseButton = styled.button.attrs((props: ButtonProps) => ({
   }
 `
 
-const disabledStyle = css`
+const DisabledButton = styled(BaseButton)`
   background-color: ${({ theme }) => theme.palette.gray[10]};
   color: ${({ theme }) => theme.palette.gray[45]};
   cursor: not-allowed;
 `
 
-const primaryStyleContained = css`
+const ContainedButton = styled(BaseButton)`
   border: none;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: ${({ theme, color }) => theme.palette[color].main};
+  color: ${({ theme, color }) => theme.palette[color].contrastText};
 
-  &:focus {
-    background-color: ${({ theme }) => theme.palette.primary.light};
-  }
+  &:focus,
   &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.light};
+    background-color: ${({ theme, color }) => theme.palette[color].light};
   }
 `
 
-const primaryStyleOutlined = css`
-  border: 2px solid ${({ theme }) => theme.palette.gray[60]};
-  color: ${({ theme }) => theme.palette.gray[60]};
+const OutlinedButton = styled(BaseButton)`
+  border: 2px solid ${({ theme, color }) => theme.palette[color].main};
+  color: ${({ theme, color }) => theme.palette[color].main};
   background-color: rgba(0, 0, 0, 0);
 
   &:focus,
   &:hover {
-    border: 3px solid ${({ theme }) => theme.palette.gray[60]};
+    border: 3px solid ${({ theme, color }) => theme.palette[color].main};
     padding: 0 15px;
   }
 `
 
-const energyStyleContained = css`
-  border: none;
-  background-color: ${({ theme }) => theme.palette.energy.main};
-  color: ${({ theme }) => theme.palette.energy.contrastText};
-
-  &:focus {
-    background-color: ${({ theme }) => theme.palette.energy.light};
+export const Button = ({
+  disabled,
+  variant = 'contained',
+  size = 'normal',
+  color = 'primary',
+  fullWidth = false,
+  ...props
+}: ButtonProps) => {
+  if (disabled) {
+    return <DisabledButton size={size} color={color} fullWidth={fullWidth} {...props} />
   }
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.energy.light};
+  if (variant === 'outlined') {
+    return <OutlinedButton size={size} color={color} fullWidth={fullWidth} {...props} />
   }
-`
-
-const energyStyleOutlined = css`
-  border: 2px solid ${({ theme }) => theme.palette.energy.main};
-  color: ${({ theme }) => theme.palette.energy.main};
-  background-color: rgba(0, 0, 0, 0);
-
-  &:focus,
-  &:hover {
-    border: 3px solid ${({ theme }) => theme.palette.energy.main};
-    padding: 0 15px;
-  }
-`
-
-export const Button = styled(BaseButton)`
-  ${({ disabled, color, variant }) => {
-    if (disabled) return disabledStyle
-    if (variant === 'outlined') {
-      if (color === 'energy') return energyStyleOutlined
-      else {
-        return primaryStyleOutlined
-      }
-    }
-    if (color === 'energy') return energyStyleContained
-    else {
-      return primaryStyleContained
-    }
-  }}
-`
-
-// &:active {
-//   height: 34px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 38px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 46px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 50px;
-//   transform: translate(3px, 1px);
-// }
-// &:active {
-//   height: 42px;
-//   transform: translate(3px, 1px);
-// }
+  return <ContainedButton size={size} color={color} fullWidth={fullWidth} {...props} />
+}

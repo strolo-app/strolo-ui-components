@@ -61,3 +61,8 @@ export declare const defaultTheme: {
         1: string;
     };
 };
+declare module 'styled-components' {
+    type Theme = typeof defaultTheme;
+    interface DefaultTheme extends Theme {
+    }
+}
