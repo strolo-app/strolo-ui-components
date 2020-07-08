@@ -8,4 +8,4 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Component = () => <Logo width={number('width', 50)} height={number('height', 82)} />
+export const Component = () => <Logo width={number('width', 50)} />

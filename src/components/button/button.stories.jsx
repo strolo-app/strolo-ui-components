@@ -1,7 +1,7 @@
 import React from 'react'
 import { withKnobs, select, boolean } from '@storybook/addon-knobs'
 
-import { Button } from '.'
+import { Button, OutlinedButton } from '.'
 
 export default {
   title: 'Button',
@@ -9,16 +9,25 @@ export default {
 }
 
 const sizeOptions = ['tiny', 'small', 'normal', 'large', 'huge']
-const colorOptions = ['primary', 'energy']
-const variantOptions = ['contained', 'outlined', 'text']
+const colorOptions = ['primary', 'energy', 'health', 'calm']
 
-export const Component = () => (
+export const ButtonStory = () => (
   <Button
     size={select('size', sizeOptions, 'normal')}
     color={select('color', colorOptions, 'primary')}
     fullWidth={boolean('fullWidth', false)}
-    variant={select('variant', variantOptions, 'containd')}
+    disabled={boolean('disabled', false)}
   >
     Button
   </Button>
+)
+
+export const OutlinedButtonStory = () => (
+  <OutlinedButton
+    size={select('size', sizeOptions, 'normal')}
+    fullWidth={boolean('fullWidth', false)}
+    disabled={boolean('disabled', false)}
+  >
+    OutlinedButton
+  </OutlinedButton>
 )

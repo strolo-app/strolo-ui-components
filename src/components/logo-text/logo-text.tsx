@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * RATIO is used to calculate the height of the SVG
+ */
+const RATIO = 0.1598
+
 export interface LogoTextProps {
   color?: 'black' | 'white'
   width?: number
@@ -8,14 +13,13 @@ export interface LogoTextProps {
 
 export const LogoText: React.FC<LogoTextProps & React.SVGProps<SVGSVGElement>> = ({
   color = 'black',
-  width = 296,
-  height = 35,
+  width = 219,
   ...props
 }) => {
   return (
     <svg
       width={width}
-      height={height}
+      height={width * RATIO}
       viewBox="0 0 219 35"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

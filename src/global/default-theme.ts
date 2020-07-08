@@ -1,70 +1,67 @@
-// import { DefaultTheme } from 'styled-components'
 import { lighten } from 'polished'
 import { baseFontSize, webTypeScale, mobileTypeScale } from './typography'
 
-const yellow = { 30: '#FFD600' }
-const blue = { 30: '#00E4F2' }
-const red = { 30: '#FE1C5F' }
+const yellow = '#FFD600'
+const blue = '#00E4F2'
+const red = '#FE1C5F'
 
-const gray = {
-  60: '#000',
-  50: '#444A53',
-  45: '#72757E',
-  40: '#888B91',
-  30: '#CCCDD0',
-  20: '#EEEEEF',
-  10: '#FAFAFA',
-  0: '#fff',
+const colors = {
+  energy30: yellow,
+  energy20: lighten(0.2, yellow),
+
+  calm30: blue,
+  calm20: lighten(0.2, blue),
+
+  health30: red,
+  health20: lighten(0.2, red),
+
+  gray60: '#000',
+  gray50: '#444A53',
+  gray45: '#72757E',
+  gray40: '#888B91',
+  gray30: '#CCCDD0',
+  gray20: '#EEEEEF',
+  gray10: '#FAFAFA',
+  gray0: '#fff',
 }
 
-// const customMediaQuery = (maxWidth: number) =>
-//   `@media (max-width: ${maxWidth}px)`;
-// const media = {
-//   custom: customMediaQuery,
-//   desktop: customMediaQuery(922),
-//   tablet: customMediaQuery(768),
-//   phone: customMediaQuery(576),
-// };
-// const Content = styled.div`
-//   height: 3em;
-//   width: 3em;
-//   background: papayawhip;
-//   /* Now we have our methods on media and can use them instead of raw queries */
-//   ${media.desktop} {
-//     background: dodgerblue;
-//   }
-//   ${media.tablet} {
-//     background: mediumseagreen;
-//   }
-//   ${media.phone} {
-//     background: palevioletred;
-//   }
-// `;
+export type Color = keyof typeof colors
+
+const customMaxMediaQuery = (maxWidth: number) => `@media (max-width: ${maxWidth}px)`
+const customMinMediaQuery = (minWidth: number) => `@media (max-width: ${minWidth}px)`
 
 export const defaultTheme = {
+  colors,
   palette: {
+    primary: {
+      light: colors.gray50,
+      main: colors.gray60,
+      contrastText: colors.gray0,
+    },
     energy: {
-      light: lighten(0.2, yellow[30]),
-      main: yellow[30],
-      contrastText: gray[60],
+      light: colors.energy20,
+      main: colors.energy30,
+      contrastText: colors.gray60,
     },
     calm: {
-      main: blue[30],
-      contrastText: gray[60],
+      light: colors.calm20,
+      main: colors.calm30,
+      contrastText: colors.gray60,
     },
     health: {
-      main: red[30],
-      contrastText: gray[60],
+      light: colors.health20,
+      main: colors.health30,
+      contrastText: colors.gray60,
     },
-    primary: {
-      light: lighten(0.2, gray[60]),
-      main: gray[60],
-      contrastText: gray[0],
-    },
+  },
 
-    gray: {
-      ...gray,
-    },
+  media: {
+    customMax: customMaxMediaQuery,
+    customMin: customMinMediaQuery,
+    phoneOnly: customMaxMediaQuery(599),
+    tabletPortraitUp: customMinMediaQuery(600),
+    tabletLandscapeUp: customMinMediaQuery(900),
+    tabletDesktopUp: customMinMediaQuery(1200),
   },
 
   typography: {
@@ -77,7 +74,7 @@ export const defaultTheme = {
 
   elevation: {
     0: 'box-shadow: none;',
-    1: `box-shadow: 0px 1px 0px ${gray[30]};`,
+    1: `box-shadow: 0px 1px 0px ${colors.gray30};`,
   },
 }
 

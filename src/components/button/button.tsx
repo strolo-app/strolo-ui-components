@@ -1,18 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-interface StyledButtonProps {
-  size: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
-  color: 'energy' | 'primary'
-  fullWidth: boolean
+interface BaseButtonProps {
+  size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
+  fullWidth?: boolean
 }
 
-export interface ButtonProps extends Partial<StyledButtonProps> {
+interface ButtonProps extends BaseButtonProps {
+  color?: 'energy' | 'health' | 'calm' | 'primary'
   disabled?: boolean
-  variant?: 'contained' | 'outlined' | 'text'
 }
 
-const BaseButton = styled.button<StyledButtonProps>`
+interface OutlinedButtonProps extends BaseButtonProps {
+  disabled?: boolean
+}
+
+const BaseButton = styled.button<BaseButtonProps>`
   outline: none;
   display: flex;
   align-items: center;
@@ -68,48 +70,42 @@ const BaseButton = styled.button<StyledButtonProps>`
   }
 `
 
-const DisabledButton = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.palette.gray[10]};
-  color: ${({ theme }) => theme.palette.gray[45]};
+const disabledButtonStyles = css`
+  border: none;
+  background-color: ${({ theme }) => theme.colors.gray10};
+  color: ${({ theme }) => theme.colors.gray45};
   cursor: not-allowed;
 `
 
-const ContainedButton = styled(BaseButton)`
-  border: none;
-  background-color: ${({ theme, color }) => theme.palette[color].main};
-  color: ${({ theme, color }) => theme.palette[color].contrastText};
+export const Button = styled(BaseButton)<ButtonProps>`
+  ${({ theme, color = 'primary', disabled }) =>
+    disabled
+      ? disabledButtonStyles
+      : `
+    border: none;
+    background-color: ${theme.palette[color].main};
+    color: ${theme.palette[color].contrastText};
 
-  &:focus,
-  &:hover {
-    background-color: ${({ theme, color }) => theme.palette[color].light};
-  }
+    &:focus,
+    &:hover {
+      background-color: ${theme.palette[color].light};
+    }
+  `}
 `
 
-const OutlinedButton = styled(BaseButton)`
-  border: 2px solid ${({ theme, color }) => theme.palette[color].main};
-  color: ${({ theme, color }) => theme.palette[color].main};
+export const OutlinedButton = styled(BaseButton)<OutlinedButtonProps>`
+  ${({ theme, disabled }) =>
+    disabled
+      ? disabledButtonStyles
+      : `
+  border: 2px solid ${theme.palette.primary.main};
+  color: ${theme.palette.primary.main};
   background-color: rgba(0, 0, 0, 0);
 
   &:focus,
   &:hover {
-    border: 3px solid ${({ theme, color }) => theme.palette[color].main};
+    border: 3px solid ${theme.palette.primary.main};
     padding: 0 15px;
   }
+  `}
 `
-
-export const Button = ({
-  disabled,
-  variant = 'contained',
-  size = 'normal',
-  color = 'primary',
-  fullWidth = false,
-  ...props
-}: ButtonProps) => {
-  if (disabled) {
-    return <DisabledButton size={size} color={color} fullWidth={fullWidth} {...props} />
-  }
-  if (variant === 'outlined') {
-    return <OutlinedButton size={size} color={color} fullWidth={fullWidth} {...props} />
-  }
-  return <ContainedButton size={size} color={color} fullWidth={fullWidth} {...props} />
-}

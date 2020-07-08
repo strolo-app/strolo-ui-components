@@ -1,20 +1,105 @@
-import React from 'react'
 import styled from 'styled-components'
+import { Color } from '../../global/default-theme'
 
 export interface TextProps {
-  as?: React.ElementType
-  fontSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p1' | 'p2'
-  textAlign?: 'left' | 'center' | 'right' | 'inherit'
+  fontWeight?: 400 | 600 | 700 | 900
+  textAlign?:
+    | 'center'
+    | 'end'
+    | 'inherit'
+    | 'initial'
+    | 'justify'
+    | 'left'
+    | 'right'
+    | 'start'
+    | 'unset'
+  fontSize?: string
+  lineHeight?: string
+  color?: Color
 }
 
-const Component = styled.p.attrs((props: TextProps) => ({
-  fontSize: props.fontSize,
-  textAlign: props.textAlign,
-}))`
+export const Text = styled.span<TextProps>`
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
+  ${({ fontWeight }) => fontWeight && `font-weight: ${fontWeight};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
-  ${({ theme, fontSize }) => fontSize && `font-size: ${theme.typography.typeScale.web[fontSize]};`}
+  ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight};`}
+  ${({ fontSize }) => fontSize && `font-size: ${fontSize};`}
 `
 
-export const Text: React.FC<TextProps> = React.forwardRef(({ ...props }, ref) => {
-  return <Component ref={ref} {...props} />
-})
+export const P1 = styled.p<TextProps>`
+  color: ${({ theme }) => theme.colors.gray50};
+  font-size: ${({ theme }) => theme.typography.typeScale.web.p1};
+  ${({ textAlign }) => !!textAlign && `text-align: textAlign;`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.p1};
+  }
+`
+
+export const P2 = styled.p<TextProps>`
+  color: ${({ theme }) => theme.colors.gray50};
+  font-size: ${({ theme }) => theme.typography.typeScale.web.p2};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.p2};
+  }
+`
+
+export const H6 = styled.h6<TextProps>`
+  font-weight: bold;
+  text-align: center;
+  font-size: ${({ theme }) => theme.typography.typeScale.web.h6};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.h6};
+  }
+`
+
+export const H5 = styled.h5<TextProps>`
+  font-weight: bold;
+  text-align: center;
+  font-size: ${({ theme }) => theme.typography.typeScale.web.h5};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.h5};
+  }
+`
+
+export const H4 = styled.h4<TextProps>`
+  font-weight: bold;
+  text-align: center;
+  font-size: ${({ theme }) => theme.typography.typeScale.web.h4};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.h4};
+  }
+`
+
+export const H3 = styled.h3<TextProps>`
+  font-weight: bold;
+  text-align: center;
+  font-size: ${({ theme }) => theme.typography.typeScale.web.h3};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.h3};
+  }
+`
+
+export const H2 = styled.h2<TextProps>`
+  font-weight: bold;
+  text-align: center;
+  font-size: ${({ theme }) => theme.typography.typeScale.web.h2};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.h2};
+  }
+`
+
+export const H1 = styled.h1<TextProps>`
+  font-weight: bold;
+  text-align: center;
+  font-size: ${({ theme }) => theme.typography.typeScale.web.h1};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
+  ${({ theme }) => theme.media.phoneOnly} {
+    font-size: ${({ theme }) => theme.typography.typeScale.mobile.h1};
+  }
+`

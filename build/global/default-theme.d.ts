@@ -1,33 +1,66 @@
+declare const colors: {
+    energy30: string;
+    energy20: string;
+    calm30: string;
+    calm20: string;
+    health30: string;
+    health20: string;
+    gray60: string;
+    gray50: string;
+    gray45: string;
+    gray40: string;
+    gray30: string;
+    gray20: string;
+    gray10: string;
+    gray0: string;
+};
+export declare type Color = keyof typeof colors;
 export declare const defaultTheme: {
+    colors: {
+        energy30: string;
+        energy20: string;
+        calm30: string;
+        calm20: string;
+        health30: string;
+        health20: string;
+        gray60: string;
+        gray50: string;
+        gray45: string;
+        gray40: string;
+        gray30: string;
+        gray20: string;
+        gray10: string;
+        gray0: string;
+    };
     palette: {
+        primary: {
+            light: string;
+            main: string;
+            contrastText: string;
+        };
         energy: {
             light: string;
             main: string;
             contrastText: string;
         };
         calm: {
-            main: string;
-            contrastText: string;
-        };
-        health: {
-            main: string;
-            contrastText: string;
-        };
-        primary: {
             light: string;
             main: string;
             contrastText: string;
         };
-        gray: {
-            60: string;
-            50: string;
-            45: string;
-            40: string;
-            30: string;
-            20: string;
-            10: string;
-            0: string;
+        health: {
+            light: string;
+            main: string;
+            contrastText: string;
         };
+    };
+    media: {
+        customMax: (maxWidth: number) => string;
+        customMin: (minWidth: number) => string;
+        phoneOnly: string;
+        tabletPortraitUp: string;
+        tabletLandscapeUp: string;
+        tabletDesktopUp: string;
     };
     typography: {
         baseFontSize: string;
@@ -66,3 +99,4 @@ declare module 'styled-components' {
     interface DefaultTheme extends Theme {
     }
 }
+export {};

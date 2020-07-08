@@ -30,7 +30,7 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: '{{src}}/components/{{kebabCase name}}/{{kebabCase name}}.stories.mdx',
+        path: '{{src}}/components/{{kebabCase name}}/{{kebabCase name}}.stories.tsx',
         templateFile: '.plop/component/stories.hbs',
       },
       {

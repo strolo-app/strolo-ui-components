@@ -1,6 +1,5 @@
 import React from 'react';
 export interface LogoProps {
-    height?: number;
     width?: number;
     color?: 'black' | 'white';
 }

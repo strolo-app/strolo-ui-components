@@ -1,11 +1,15 @@
 import React from 'react'
-import { withKnobs, number } from '@storybook/addon-knobs'
+import { withKnobs, select } from '@storybook/addon-knobs'
 
-import { {{ pascalCase name }} } from './logo'
+import { {{ pascalCase name }}  } from './{{ kebabCase name }}'
 
 export default {
-  title: '{{ pascalCase name }}',
+  title: '{{ pascalCase name }} ',
   decorators: [withKnobs],
 }
 
-export const Component = () => <{{ pascalCase name }} />
+const colorOptions = ['primary', 'energy', 'health', 'calm']
+
+export const Component = () => (
+  <{{ pascalCase name }} color={select('color', colorOptions, 'energy')}>children</{{ pascalCase name }} >
+)
