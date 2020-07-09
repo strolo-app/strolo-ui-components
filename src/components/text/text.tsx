@@ -17,7 +17,14 @@ export interface TextProps {
   lineHeight?: string
   color?: Color
   italic?: boolean
-  textTransform: 'capitalize' | 'lowercase' | 'uppercase' | 'none' | 'inherit' | 'initial' | 'unset'
+  textTransform?:
+    | 'capitalize'
+    | 'lowercase'
+    | 'uppercase'
+    | 'none'
+    | 'inherit'
+    | 'initial'
+    | 'unset'
 }
 
 export const Text = styled.span<TextProps>`

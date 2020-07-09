@@ -6,7 +6,7 @@ export interface TextProps {
     lineHeight?: string;
     color?: Color;
     italic?: boolean;
-    textTransform: 'capitalize' | 'lowercase' | 'uppercase' | 'none' | 'inherit' | 'initial' | 'unset';
+    textTransform?: 'capitalize' | 'lowercase' | 'uppercase' | 'none' | 'inherit' | 'initial' | 'unset';
 }
 export declare const Text: import("styled-components").StyledComponent<"span", import("styled-components").DefaultTheme, TextProps, never>;
 export declare const P1: import("styled-components").StyledComponent<"p", import("styled-components").DefaultTheme, TextProps, never>;
