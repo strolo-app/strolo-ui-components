@@ -29,7 +29,7 @@ export const Text = styled.span<TextProps>`
 export const P1 = styled.p<TextProps>`
   font-size: ${({ theme }) => theme.typography.typeScale.web.p1};
   ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
-  ${({ textAlign }) => !!textAlign && `text-align: textAlign;`}
+  ${({ textAlign }) => !!textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.p1};
   }

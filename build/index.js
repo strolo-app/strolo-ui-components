@@ -1337,7 +1337,7 @@ var P1 = styled__default.p(templateObject_2$1 || (templateObject_2$1 = __makeTem
     return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
-    return !!textAlign && "text-align: textAlign;";
+    return !!textAlign && "text-align: " + textAlign + ";";
 }, function (_a) {
     var theme = _a.theme;
     return theme.media.phoneOnly;
