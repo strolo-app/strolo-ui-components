@@ -1152,7 +1152,7 @@ var colors = {
     gray0: '#fff',
 };
 var customMaxMediaQuery = function (maxWidth) { return "@media (max-width: " + maxWidth + "px)"; };
-var customMinMediaQuery = function (minWidth) { return "@media (max-width: " + minWidth + "px)"; };
+var customMinMediaQuery = function (minWidth) { return "@media (min-width: " + minWidth + "px)"; };
 var defaultTheme = {
     colors: colors,
     palette: {

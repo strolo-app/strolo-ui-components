@@ -28,7 +28,7 @@ const colors = {
 export type Color = keyof typeof colors
 
 const customMaxMediaQuery = (maxWidth: number) => `@media (max-width: ${maxWidth}px)`
-const customMinMediaQuery = (minWidth: number) => `@media (max-width: ${minWidth}px)`
+const customMinMediaQuery = (minWidth: number) => `@media (min-width: ${minWidth}px)`
 
 export const defaultTheme = {
   colors,
