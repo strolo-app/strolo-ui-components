@@ -1313,7 +1313,7 @@ var LogoText = function (_a) {
         React.createElement("path", { d: "M202.047 35C200.163 35 198.431 34.6884 196.85 34.0653C195.303 33.4075 193.974 32.4728 192.864 31.2611C191.754 30.0495 190.879 28.5608 190.24 26.7953C189.635 24.9951 189.332 22.9525 189.332 20.6677C189.332 17.5173 189.803 14.6785 190.745 12.1513C191.72 9.58952 192.982 7.40851 194.529 5.60831C196.11 3.80811 197.909 2.42335 199.928 1.45401C201.98 0.48467 204.099 0 206.285 0C208.169 0 209.884 0.328883 211.432 0.98665C213.013 1.6098 214.358 2.5272 215.468 3.73887C216.578 4.95055 217.436 6.45648 218.041 8.25668C218.68 10.0223 219 12.0475 219 14.3323C219 17.4827 218.512 20.3388 217.537 22.9006C216.595 25.4278 215.334 27.5915 213.753 29.3917C212.205 31.1919 210.406 32.5767 208.354 33.546C206.302 34.5153 204.2 35 202.047 35ZM202.451 27.8338C203.392 27.8338 204.351 27.5223 205.326 26.8991C206.302 26.276 207.193 25.3932 208.001 24.2507C208.808 23.1083 209.464 21.7409 209.968 20.1484C210.473 18.5559 210.725 16.7903 210.725 14.8516C210.725 12.3937 210.288 10.5069 209.413 9.1914C208.572 7.84125 207.395 7.16617 205.882 7.16617C204.94 7.16617 203.981 7.47775 203.006 8.10089C202.03 8.72404 201.139 9.60682 200.331 10.7493C199.524 11.8917 198.868 13.2591 198.364 14.8516C197.859 16.4441 197.607 18.2097 197.607 20.1484C197.607 22.6063 198.027 24.5104 198.868 25.8605C199.743 27.1761 200.937 27.8338 202.451 27.8338Z", fill: color })));
 };
 
-var Text = styled__default.span(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), function (_a) {
+var Text = styled__default.span(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme, color = _a.color;
     return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
@@ -1328,6 +1328,12 @@ var Text = styled__default.span(templateObject_1$2 || (templateObject_1$2 = __ma
 }, function (_a) {
     var fontSize = _a.fontSize;
     return fontSize && "font-size: " + fontSize + ";";
+}, function (_a) {
+    var italic = _a.italic;
+    return italic && "font-size: italic;";
+}, function (_a) {
+    var textTransform = _a.textTransform;
+    return textTransform && "text-transform: " + textTransform + ";";
 });
 var P1 = styled__default.p(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;

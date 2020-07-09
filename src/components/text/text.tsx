@@ -16,6 +16,8 @@ export interface TextProps {
   fontSize?: string
   lineHeight?: string
   color?: Color
+  italic?: boolean
+  textTransform: 'capitalize' | 'lowercase' | 'uppercase' | 'none' | 'inherit' | 'initial' | 'unset'
 }
 
 export const Text = styled.span<TextProps>`
@@ -24,6 +26,8 @@ export const Text = styled.span<TextProps>`
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight};`}
   ${({ fontSize }) => fontSize && `font-size: ${fontSize};`}
+  ${({ italic }) => italic && `font-size: italic;`}
+  ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
 `
 
 export const P1 = styled.p<TextProps>`
