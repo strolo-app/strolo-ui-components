@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs, select } from '@storybook/addon-knobs'
+import { withKnobs } from '@storybook/addon-knobs'
 
 import { H1, H2, H3, H4, H5, H6, P1, P2, Text } from './text'
 
@@ -48,5 +48,13 @@ export const Component = () => (
     <Text fontSize="3rem" color="gray50">
       Text element with custom font size 3rem
     </Text>
+
+    <br />
+
+    <P1 style={{ width: '300px' }}>
+      By starting my Membership, I confirm that I have read and agree to the Strolo Terms of
+      Service, Privacy Policy, and Membership Terms, and I authorize Strolo to charge my payment
+      method for the monthly membership as described above.
+    </P1>
   </div>
 )

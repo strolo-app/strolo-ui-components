@@ -1234,7 +1234,7 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var GlobalStyle = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
+var GlobalStyle = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1.7;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1.7;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
 var templateObject_1;
 
 var BaseButton = styled.button(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
@@ -1322,12 +1322,12 @@ var Text = styled.span(templateObject_1$2 || (templateObject_1$2 = __makeTemplat
     var fontSize = _a.fontSize;
     return fontSize && "font-size: " + fontSize + ";";
 });
-var P1 = styled.p(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  color: ", ";\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  color: ", ";\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.colors.gray50;
-}, function (_a) {
+var P1 = styled.p(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.p1;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return !!textAlign && "text-align: textAlign;";
@@ -1338,12 +1338,12 @@ var P1 = styled.p(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObje
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.p1;
 });
-var P2 = styled.p(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  color: ", ";\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  color: ", ";\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.colors.gray50;
-}, function (_a) {
+var P2 = styled.p(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.p2;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";
@@ -1354,9 +1354,12 @@ var P2 = styled.p(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObje
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.p2;
 });
-var H6 = styled.h6(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H6 = styled.h6(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h6;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";
@@ -1367,9 +1370,12 @@ var H6 = styled.h6(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObj
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h6;
 });
-var H5 = styled.h5(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H5 = styled.h5(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h5;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";
@@ -1380,9 +1386,12 @@ var H5 = styled.h5(templateObject_5 || (templateObject_5 = __makeTemplateObject(
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h5;
 });
-var H4 = styled.h4(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H4 = styled.h4(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h4;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";
@@ -1393,9 +1402,12 @@ var H4 = styled.h4(templateObject_6 || (templateObject_6 = __makeTemplateObject(
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h4;
 });
-var H3 = styled.h3(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H3 = styled.h3(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h3;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";
@@ -1406,9 +1418,12 @@ var H3 = styled.h3(templateObject_7 || (templateObject_7 = __makeTemplateObject(
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h3;
 });
-var H2 = styled.h2(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H2 = styled.h2(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h2;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";
@@ -1419,9 +1434,12 @@ var H2 = styled.h2(templateObject_8 || (templateObject_8 = __makeTemplateObject(
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h2;
 });
-var H1 = styled.h1(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  text-align: center;\n  font-size: ", ";\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H1 = styled.h1(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h1;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
 }, function (_a) {
     var textAlign = _a.textAlign;
     return textAlign && "text-align: " + textAlign + ";";

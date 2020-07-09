@@ -27,8 +27,8 @@ export const Text = styled.span<TextProps>`
 `
 
 export const P1 = styled.p<TextProps>`
-  color: ${({ theme }) => theme.colors.gray50};
   font-size: ${({ theme }) => theme.typography.typeScale.web.p1};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => !!textAlign && `text-align: textAlign;`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.p1};
@@ -36,8 +36,8 @@ export const P1 = styled.p<TextProps>`
 `
 
 export const P2 = styled.p<TextProps>`
-  color: ${({ theme }) => theme.colors.gray50};
   font-size: ${({ theme }) => theme.typography.typeScale.web.p2};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.p2};
@@ -46,8 +46,8 @@ export const P2 = styled.p<TextProps>`
 
 export const H6 = styled.h6<TextProps>`
   font-weight: bold;
-  text-align: center;
   font-size: ${({ theme }) => theme.typography.typeScale.web.h6};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.h6};
@@ -56,8 +56,8 @@ export const H6 = styled.h6<TextProps>`
 
 export const H5 = styled.h5<TextProps>`
   font-weight: bold;
-  text-align: center;
   font-size: ${({ theme }) => theme.typography.typeScale.web.h5};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.h5};
@@ -66,8 +66,8 @@ export const H5 = styled.h5<TextProps>`
 
 export const H4 = styled.h4<TextProps>`
   font-weight: bold;
-  text-align: center;
   font-size: ${({ theme }) => theme.typography.typeScale.web.h4};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.h4};
@@ -76,8 +76,8 @@ export const H4 = styled.h4<TextProps>`
 
 export const H3 = styled.h3<TextProps>`
   font-weight: bold;
-  text-align: center;
   font-size: ${({ theme }) => theme.typography.typeScale.web.h3};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.h3};
@@ -86,8 +86,8 @@ export const H3 = styled.h3<TextProps>`
 
 export const H2 = styled.h2<TextProps>`
   font-weight: bold;
-  text-align: center;
   font-size: ${({ theme }) => theme.typography.typeScale.web.h2};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.h2};
@@ -96,8 +96,8 @@ export const H2 = styled.h2<TextProps>`
 
 export const H1 = styled.h1<TextProps>`
   font-weight: bold;
-  text-align: center;
   font-size: ${({ theme }) => theme.typography.typeScale.web.h1};
+  ${({ theme, color }) => color && `color: ${theme.colors[color]};`}
   ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${({ theme }) => theme.media.phoneOnly} {
     font-size: ${({ theme }) => theme.typography.typeScale.mobile.h1};
