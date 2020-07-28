@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import BlackCircleLogo from './black-circle-logo.svg'
+import BlackCircleLogo from '../../assets/black-circle-logo.svg'
 
 export interface LoaderProps {}
 
