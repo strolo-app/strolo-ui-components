@@ -1273,10 +1273,10 @@ var Button = styled(BaseButton)(templateObject_3 || (templateObject_3 = __makeTe
 });
 var OutlinedButton = styled(BaseButton)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
     "\n"])), function (_a) {
-    var theme = _a.theme, disabled = _a.disabled;
+    var theme = _a.theme, disabled = _a.disabled, _b = _a.color, color = _b === void 0 ? 'black' : _b;
     return disabled
         ? disabledButtonStyles
-        : "\n  border: 2px solid " + theme.palette.primary.main + ";\n  color: " + theme.palette.primary.main + ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid " + theme.palette.primary.main + ";\n    padding: 0 15px;\n  }\n  ";
+        : "\n  border: 2px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  color: " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n    padding: 0 15px;\n  }\n  ";
 });
 var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4;
 

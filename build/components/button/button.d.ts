@@ -8,6 +8,7 @@ interface ButtonProps extends BaseButtonProps {
 }
 interface OutlinedButtonProps extends BaseButtonProps {
     disabled?: boolean;
+    color?: 'black' | 'white';
 }
 export declare const Button: import("styled-components").StyledComponent<"button", import("styled-components").DefaultTheme, BaseButtonProps & ButtonProps, never>;
 export declare const OutlinedButton: import("styled-components").StyledComponent<"button", import("styled-components").DefaultTheme, BaseButtonProps & OutlinedButtonProps, never>;

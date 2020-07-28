@@ -12,6 +12,7 @@ interface ButtonProps extends BaseButtonProps {
 
 interface OutlinedButtonProps extends BaseButtonProps {
   disabled?: boolean
+  color?: 'black' | 'white'
 }
 
 const BaseButton = styled.button<BaseButtonProps>`
@@ -94,17 +95,17 @@ export const Button = styled(BaseButton)<ButtonProps>`
 `
 
 export const OutlinedButton = styled(BaseButton)<OutlinedButtonProps>`
-  ${({ theme, disabled }) =>
+  ${({ theme, disabled, color = 'black' }) =>
     disabled
       ? disabledButtonStyles
       : `
-  border: 2px solid ${theme.palette.primary.main};
-  color: ${theme.palette.primary.main};
+  border: 2px solid ${color === 'white' ? theme.colors.gray0 : theme.palette.primary.main};
+  color: ${color === 'white' ? theme.colors.gray0 : theme.palette.primary.main};
   background-color: rgba(0, 0, 0, 0);
 
   &:focus,
   &:hover {
-    border: 3px solid ${theme.palette.primary.main};
+    border: 3px solid ${color === 'white' ? theme.colors.gray0 : theme.palette.primary.main};
     padding: 0 15px;
   }
   `}
