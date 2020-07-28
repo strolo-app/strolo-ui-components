@@ -8,6 +8,293 @@ var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
 var React = _interopDefault(require('react'));
 
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+}
+
+var BaseButton = styled__default.button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
+    "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"])), function (_a) {
+    var fullWidth = _a.fullWidth;
+    return (fullWidth ? "width: 100%;" : "width: fit-content;");
+}, function (_a) {
+    var size = _a.size;
+    switch (size) {
+        case 'tiny':
+            return "\n          height: 36px;\n          border-radius: 8px 0px;\n          font-size: 0.75rem;\n        ";
+        case 'small':
+            return "\n          height: 40px;\n          border-radius: 10px 0px;\n          font-size: 0.875rem;\n        ";
+        case 'large':
+            return "\n          height: 48px;\n          border-radius: 16px 0px;\n          font-size: 1rem;\n        ";
+        case 'huge':
+            return "\n          height: 52px;\n          border-radius: 18px 0px;\n          font-size: 1.125rem;\n        ";
+        case 'normal':
+        default:
+            return "\n          height: 44px;\n          border-radius: 12px 0px;\n          font-size: 1rem;\n        ";
+    }
+});
+var disabledButtonStyles = styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"], ["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.colors.gray10;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.gray45;
+});
+var Button = styled__default(BaseButton)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
+    "\n"])), function (_a) {
+    var theme = _a.theme, _b = _a.color, color = _b === void 0 ? 'primary' : _b, disabled = _a.disabled;
+    return disabled
+        ? disabledButtonStyles
+        : "\n    border: none;\n    background-color: " + theme.palette[color].main + ";\n    color: " + theme.palette[color].contrastText + ";\n\n    &:focus,\n    &:hover {\n      background-color: " + theme.palette[color].light + ";\n    }\n  ";
+});
+var OutlinedButton = styled__default(BaseButton)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
+    "\n"])), function (_a) {
+    var theme = _a.theme, disabled = _a.disabled, _b = _a.color, color = _b === void 0 ? 'black' : _b;
+    return disabled
+        ? disabledButtonStyles
+        : "\n  border: 2px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  color: " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n    padding: 0 15px;\n  }\n  ";
+});
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+var BlackCircleLogo = "<svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z\" fill=\"#12151B\"/>\n<path d=\"M20.2299 16.9674L17.3727 15.2767C17.1091 15.1207 16.767 15.2047 16.6086 15.4643L11.9105 23.1644C11.5899 23.69 12.2533 24.2587 12.7376 23.8735L20.293 17.864C20.5939 17.6247 20.5615 17.1636 20.2299 16.9674Z\" fill=\"white\"/>\n<path d=\"M11.2701 15.5326L14.1273 17.2233C14.3909 17.3793 14.733 17.2953 14.8914 17.0357L19.5895 9.33557C19.9101 8.81004 19.2467 8.24132 18.7624 8.62655L11.207 14.636C10.9061 14.8753 10.9385 15.3364 11.2701 15.5326Z\" fill=\"white\"/>\n</svg>";
+
+var Loader = function () {
+    return React.createElement(LoadingIcon, { src: BlackCircleLogo });
+};
+var LoadingIcon = styled__default.img(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  animation-name: spin;\n  animation-duration: 4000ms;\n  animation-iteration-count: infinite;\n  animation-timing-function: ease-in-out;\n  @keyframes spin {\n    0% {\n      transform: rotate(0deg);\n    }\n    10% {\n      transform: rotate(0deg);\n    }\n    50% {\n      transform: rotate(360deg);\n    }\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  width: 60px;\n"], ["\n  animation-name: spin;\n  animation-duration: 4000ms;\n  animation-iteration-count: infinite;\n  animation-timing-function: ease-in-out;\n  @keyframes spin {\n    0% {\n      transform: rotate(0deg);\n    }\n    10% {\n      transform: rotate(0deg);\n    }\n    50% {\n      transform: rotate(360deg);\n    }\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  width: 60px;\n"])));
+var templateObject_1$1;
+
+/**
+ * RATIO is used to calculate the height of the SVG
+ */
+var RATIO = 0.1598;
+var LogoText = function (_a) {
+    var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 219 : _c, props = __rest(_a, ["color", "width"]);
+    return (React.createElement("svg", __assign({ width: width, height: width * RATIO, viewBox: "0 0 219 35", fill: "none", xmlns: "http://www.w3.org/2000/svg" }, props),
+        React.createElement("path", { d: "M12.0085 35C9.92296 35 7.82064 34.5153 5.7015 33.546C3.61599 32.542 1.7155 30.863 0 28.5089L5.75195 23.8353C6.62652 25.047 7.66927 26.0336 8.88021 26.7953C10.0911 27.5569 11.3357 27.9377 12.6139 27.9377C13.7912 27.9377 14.7163 27.678 15.389 27.1588C16.0954 26.6395 16.4486 25.9125 16.4486 24.9777C16.4486 24.2161 16.1122 23.6103 15.4395 23.1602C14.7667 22.6756 13.8585 22.0697 12.7148 21.3427L9.88933 19.5252C8.37565 18.5213 7.18153 17.3615 6.30697 16.046C5.46604 14.7305 5.04557 13.0168 5.04557 10.905C5.04557 9.3818 5.36513 7.96241 6.00423 6.64688C6.64334 5.33136 7.50109 4.18892 8.57748 3.21959C9.65386 2.21563 10.9153 1.4367 12.3617 0.88279C13.8417 0.294263 15.4226 0 17.1045 0C19.0218 0 20.855 0.467359 22.6042 1.40208C24.3869 2.30218 25.9511 3.58309 27.2966 5.24481L22.251 10.1261C21.4101 9.26063 20.5523 8.55094 19.6777 7.99703C18.8368 7.44313 17.8782 7.16617 16.8018 7.16617C15.6245 7.16617 14.7499 7.46044 14.1781 8.04896C13.6062 8.60287 13.3203 9.27794 13.3203 10.0742C13.3203 10.7666 13.6567 11.3551 14.3294 11.8398C15.0358 12.2898 16.0449 12.9476 17.3568 13.8131L20.3841 15.7344C21.9651 16.7384 23.0919 17.8462 23.7647 19.0579C24.471 20.2349 24.8242 21.8101 24.8242 23.7834C24.8242 25.3412 24.5215 26.7953 23.916 28.1454C23.3106 29.4956 22.4528 30.6899 21.3428 31.7285C20.2328 32.7324 18.8873 33.5287 17.3063 34.1172C15.7254 34.7057 13.9594 35 12.0085 35Z", fill: color }),
+        React.createElement("path", { d: "M42.0202 34.3769L47.1667 7.5816H38.8919L40.2038 0.623147H64.8262L63.5143 7.5816H55.2396L50.0931 34.3769H42.0202Z", fill: color }),
+        React.createElement("path", { d: "M72.7497 34.3769L79.3089 0.623147H90.1065C91.7547 0.623147 93.2852 0.778933 94.6979 1.09051C96.1107 1.40208 97.3384 1.92137 98.3812 2.64837C99.424 3.34075 100.231 4.25816 100.803 5.40059C101.409 6.54303 101.711 7.92779 101.711 9.5549C101.711 11.1128 101.509 12.5321 101.106 13.8131C100.736 15.0593 100.198 16.1845 99.4912 17.1884C98.7849 18.1578 97.9439 19.0059 96.9684 19.7329C95.993 20.4253 94.9334 20.9965 93.7897 21.4466L98.6839 34.3769H90.2074L86.4232 22.7448H83.0427L80.8226 34.3769H72.7497ZM84.3545 16.2018H87.2809C89.4674 16.2018 91.0819 15.7171 92.1247 14.7478C93.2011 13.7438 93.7393 12.4283 93.7393 10.8012C93.7393 9.5549 93.3188 8.63749 92.4779 8.04896C91.6706 7.46044 90.5101 7.16617 88.9964 7.16617H86.07L84.3545 16.2018Z", fill: color }),
+        React.createElement("path", { d: "M127.207 35C125.323 35 123.591 34.6884 122.01 34.0653C120.463 33.4075 119.134 32.4728 118.024 31.2611C116.914 30.0495 116.039 28.5608 115.4 26.7953C114.795 24.9951 114.492 22.9525 114.492 20.6677C114.492 17.5173 114.963 14.6785 115.905 12.1513C116.88 9.58952 118.142 7.40851 119.689 5.60831C121.27 3.80811 123.069 2.42335 125.088 1.45401C127.14 0.48467 129.259 0 131.445 0C133.329 0 135.044 0.328883 136.592 0.98665C138.173 1.6098 139.518 2.5272 140.628 3.73887C141.738 4.95055 142.596 6.45648 143.201 8.25668C143.84 10.0223 144.16 12.0475 144.16 14.3323C144.16 17.4827 143.672 20.3388 142.697 22.9006C141.755 25.4278 140.493 27.5915 138.913 29.3917C137.365 31.1919 135.566 32.5767 133.514 33.546C131.462 34.5153 129.36 35 127.207 35ZM127.61 27.8338C128.552 27.8338 129.511 27.5223 130.486 26.8991C131.462 26.276 132.353 25.3932 133.161 24.2507C133.968 23.1083 134.624 21.7409 135.128 20.1484C135.633 18.5559 135.885 16.7903 135.885 14.8516C135.885 12.3937 135.448 10.5069 134.573 9.1914C133.732 7.84125 132.555 7.16617 131.041 7.16617C130.1 7.16617 129.141 7.47775 128.165 8.10089C127.19 8.72404 126.299 9.60682 125.491 10.7493C124.684 11.8917 124.028 13.2591 123.524 14.8516C123.019 16.4441 122.767 18.2097 122.767 20.1484C122.767 22.6063 123.187 24.5104 124.028 25.8605C124.903 27.1761 126.097 27.8338 127.61 27.8338Z", fill: color }),
+        React.createElement("path", { d: "M156.114 34.3769L162.673 0.623147H170.746L165.499 27.4184H177.406L176.094 34.3769H156.114Z", fill: color }),
+        React.createElement("path", { d: "M202.047 35C200.163 35 198.431 34.6884 196.85 34.0653C195.303 33.4075 193.974 32.4728 192.864 31.2611C191.754 30.0495 190.879 28.5608 190.24 26.7953C189.635 24.9951 189.332 22.9525 189.332 20.6677C189.332 17.5173 189.803 14.6785 190.745 12.1513C191.72 9.58952 192.982 7.40851 194.529 5.60831C196.11 3.80811 197.909 2.42335 199.928 1.45401C201.98 0.48467 204.099 0 206.285 0C208.169 0 209.884 0.328883 211.432 0.98665C213.013 1.6098 214.358 2.5272 215.468 3.73887C216.578 4.95055 217.436 6.45648 218.041 8.25668C218.68 10.0223 219 12.0475 219 14.3323C219 17.4827 218.512 20.3388 217.537 22.9006C216.595 25.4278 215.334 27.5915 213.753 29.3917C212.205 31.1919 210.406 32.5767 208.354 33.546C206.302 34.5153 204.2 35 202.047 35ZM202.451 27.8338C203.392 27.8338 204.351 27.5223 205.326 26.8991C206.302 26.276 207.193 25.3932 208.001 24.2507C208.808 23.1083 209.464 21.7409 209.968 20.1484C210.473 18.5559 210.725 16.7903 210.725 14.8516C210.725 12.3937 210.288 10.5069 209.413 9.1914C208.572 7.84125 207.395 7.16617 205.882 7.16617C204.94 7.16617 203.981 7.47775 203.006 8.10089C202.03 8.72404 201.139 9.60682 200.331 10.7493C199.524 11.8917 198.868 13.2591 198.364 14.8516C197.859 16.4441 197.607 18.2097 197.607 20.1484C197.607 22.6063 198.027 24.5104 198.868 25.8605C199.743 27.1761 200.937 27.8338 202.451 27.8338Z", fill: color })));
+};
+
+/**
+ * RATIO is used to calculate the height of the SVG
+ */
+var RATIO$1 = 1.64;
+var Logo = function (_a) {
+    var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 50 : _c, props = __rest(_a, ["color", "width"]);
+    return (React.createElement("svg", __assign({ width: width, height: width * RATIO$1, viewBox: "0 0 50 82", fill: "none", xmlns: "http://www.w3.org/2000/svg" }, props),
+        React.createElement("path", { d: "M48.5787 44.7952L33.5405 35.8507C32.1531 35.0256 30.3527 35.4699 29.5191 36.8432L4.79213 77.5796C3.10454 80.3598 6.59645 83.3685 9.14552 81.3305L48.9107 49.5386C50.4943 48.2725 50.3236 45.833 48.5787 44.7952Z", fill: color }),
+        React.createElement("path", { d: "M1.42134 37.2048L16.4595 46.1493C17.8469 46.9744 19.6473 46.5301 20.4809 45.1568L45.2079 4.42043C46.8955 1.64021 43.4035 -1.36849 40.8545 0.669475L1.08935 32.4614C-0.494337 33.7275 -0.323603 36.167 1.42134 37.2048Z", fill: color })));
+};
+
+var TextInput = styled__default.input(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  height: 56px;\n  width: 100%;\n  padding-left: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  height: 56px;\n  width: 100%;\n  padding-left: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"])), function (_a) {
+    var theme = _a.theme, error = _a.error;
+    return (error ? theme.colors.health30 : theme.colors.gray30);
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.gray45;
+}, function (_a) {
+    var theme = _a.theme, error = _a.error;
+    return (error ? theme.colors.health30 : theme.colors.gray60);
+}, function (_a) {
+    var theme = _a.theme, error = _a.error;
+    return (error ? theme.colors.health30 : theme.colors.gray60);
+});
+var templateObject_1$2;
+
+var Text = styled__default.span(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var fontWeight = _a.fontWeight;
+    return fontWeight && "font-weight: " + fontWeight + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var lineHeight = _a.lineHeight;
+    return lineHeight && "line-height: " + lineHeight + ";";
+}, function (_a) {
+    var fontSize = _a.fontSize;
+    return fontSize && "font-size: " + fontSize + ";";
+}, function (_a) {
+    var italic = _a.italic;
+    return italic && "font-size: italic;";
+}, function (_a) {
+    var textTransform = _a.textTransform;
+    return textTransform && "text-transform: " + textTransform + ";";
+});
+var P1 = styled__default.p(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.p1;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return !!textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.p1;
+});
+var P2 = styled__default.p(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.p2;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.p2;
+});
+var H6 = styled__default.h6(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.h6;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.h6;
+});
+var H5 = styled__default.h5(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.h5;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.h5;
+});
+var H4 = styled__default.h4(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.h4;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.h4;
+});
+var H3 = styled__default.h3(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.h3;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.h3;
+});
+var H2 = styled__default.h2(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.h2;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.h2;
+});
+var H1 = styled__default.h1(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.web.h1;
+}, function (_a) {
+    var theme = _a.theme, color = _a.color;
+    return color && "color: " + theme.colors[color] + ";";
+}, function (_a) {
+    var textAlign = _a.textAlign;
+    return textAlign && "text-align: " + textAlign + ";";
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.media.phoneOnly;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.typography.typeScale.mobile.h1;
+});
+var templateObject_1$3, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+
 function _extends() {
   _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -1198,287 +1485,8 @@ var defaultTheme = {
     },
 };
 
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-}
-
-function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-}
-
-var GlobalStyle = styled.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1.7;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1.7;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
-var templateObject_1;
-
-var BaseButton = styled__default.button(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
-    "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"])), function (_a) {
-    var fullWidth = _a.fullWidth;
-    return (fullWidth ? "width: 100%;" : "width: fit-content;");
-}, function (_a) {
-    var size = _a.size;
-    switch (size) {
-        case 'tiny':
-            return "\n          height: 36px;\n          border-radius: 8px 0px;\n          font-size: 0.75rem;\n        ";
-        case 'small':
-            return "\n          height: 40px;\n          border-radius: 10px 0px;\n          font-size: 0.875rem;\n        ";
-        case 'large':
-            return "\n          height: 48px;\n          border-radius: 16px 0px;\n          font-size: 1rem;\n        ";
-        case 'huge':
-            return "\n          height: 52px;\n          border-radius: 18px 0px;\n          font-size: 1.125rem;\n        ";
-        case 'normal':
-        default:
-            return "\n          height: 44px;\n          border-radius: 12px 0px;\n          font-size: 1rem;\n        ";
-    }
-});
-var disabledButtonStyles = styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"], ["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.colors.gray10;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.colors.gray45;
-});
-var Button = styled__default(BaseButton)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
-    "\n"])), function (_a) {
-    var theme = _a.theme, _b = _a.color, color = _b === void 0 ? 'primary' : _b, disabled = _a.disabled;
-    return disabled
-        ? disabledButtonStyles
-        : "\n    border: none;\n    background-color: " + theme.palette[color].main + ";\n    color: " + theme.palette[color].contrastText + ";\n\n    &:focus,\n    &:hover {\n      background-color: " + theme.palette[color].light + ";\n    }\n  ";
-});
-var OutlinedButton = styled__default(BaseButton)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
-    "\n"])), function (_a) {
-    var theme = _a.theme, disabled = _a.disabled, _b = _a.color, color = _b === void 0 ? 'black' : _b;
-    return disabled
-        ? disabledButtonStyles
-        : "\n  border: 2px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  color: " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n    padding: 0 15px;\n  }\n  ";
-});
-var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4;
-
-/**
- * RATIO is used to calculate the height of the SVG
- */
-var RATIO = 1.64;
-var Logo = function (_a) {
-    var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 50 : _c, props = __rest(_a, ["color", "width"]);
-    return (React.createElement("svg", __assign({ width: width, height: width * RATIO, viewBox: "0 0 50 82", fill: "none", xmlns: "http://www.w3.org/2000/svg" }, props),
-        React.createElement("path", { d: "M48.5787 44.7952L33.5405 35.8507C32.1531 35.0256 30.3527 35.4699 29.5191 36.8432L4.79213 77.5796C3.10454 80.3598 6.59645 83.3685 9.14552 81.3305L48.9107 49.5386C50.4943 48.2725 50.3236 45.833 48.5787 44.7952Z", fill: color }),
-        React.createElement("path", { d: "M1.42134 37.2048L16.4595 46.1493C17.8469 46.9744 19.6473 46.5301 20.4809 45.1568L45.2079 4.42043C46.8955 1.64021 43.4035 -1.36849 40.8545 0.669475L1.08935 32.4614C-0.494337 33.7275 -0.323603 36.167 1.42134 37.2048Z", fill: color })));
-};
-
-/**
- * RATIO is used to calculate the height of the SVG
- */
-var RATIO$1 = 0.1598;
-var LogoText = function (_a) {
-    var _b = _a.color, color = _b === void 0 ? 'black' : _b, _c = _a.width, width = _c === void 0 ? 219 : _c, props = __rest(_a, ["color", "width"]);
-    return (React.createElement("svg", __assign({ width: width, height: width * RATIO$1, viewBox: "0 0 219 35", fill: "none", xmlns: "http://www.w3.org/2000/svg" }, props),
-        React.createElement("path", { d: "M12.0085 35C9.92296 35 7.82064 34.5153 5.7015 33.546C3.61599 32.542 1.7155 30.863 0 28.5089L5.75195 23.8353C6.62652 25.047 7.66927 26.0336 8.88021 26.7953C10.0911 27.5569 11.3357 27.9377 12.6139 27.9377C13.7912 27.9377 14.7163 27.678 15.389 27.1588C16.0954 26.6395 16.4486 25.9125 16.4486 24.9777C16.4486 24.2161 16.1122 23.6103 15.4395 23.1602C14.7667 22.6756 13.8585 22.0697 12.7148 21.3427L9.88933 19.5252C8.37565 18.5213 7.18153 17.3615 6.30697 16.046C5.46604 14.7305 5.04557 13.0168 5.04557 10.905C5.04557 9.3818 5.36513 7.96241 6.00423 6.64688C6.64334 5.33136 7.50109 4.18892 8.57748 3.21959C9.65386 2.21563 10.9153 1.4367 12.3617 0.88279C13.8417 0.294263 15.4226 0 17.1045 0C19.0218 0 20.855 0.467359 22.6042 1.40208C24.3869 2.30218 25.9511 3.58309 27.2966 5.24481L22.251 10.1261C21.4101 9.26063 20.5523 8.55094 19.6777 7.99703C18.8368 7.44313 17.8782 7.16617 16.8018 7.16617C15.6245 7.16617 14.7499 7.46044 14.1781 8.04896C13.6062 8.60287 13.3203 9.27794 13.3203 10.0742C13.3203 10.7666 13.6567 11.3551 14.3294 11.8398C15.0358 12.2898 16.0449 12.9476 17.3568 13.8131L20.3841 15.7344C21.9651 16.7384 23.0919 17.8462 23.7647 19.0579C24.471 20.2349 24.8242 21.8101 24.8242 23.7834C24.8242 25.3412 24.5215 26.7953 23.916 28.1454C23.3106 29.4956 22.4528 30.6899 21.3428 31.7285C20.2328 32.7324 18.8873 33.5287 17.3063 34.1172C15.7254 34.7057 13.9594 35 12.0085 35Z", fill: color }),
-        React.createElement("path", { d: "M42.0202 34.3769L47.1667 7.5816H38.8919L40.2038 0.623147H64.8262L63.5143 7.5816H55.2396L50.0931 34.3769H42.0202Z", fill: color }),
-        React.createElement("path", { d: "M72.7497 34.3769L79.3089 0.623147H90.1065C91.7547 0.623147 93.2852 0.778933 94.6979 1.09051C96.1107 1.40208 97.3384 1.92137 98.3812 2.64837C99.424 3.34075 100.231 4.25816 100.803 5.40059C101.409 6.54303 101.711 7.92779 101.711 9.5549C101.711 11.1128 101.509 12.5321 101.106 13.8131C100.736 15.0593 100.198 16.1845 99.4912 17.1884C98.7849 18.1578 97.9439 19.0059 96.9684 19.7329C95.993 20.4253 94.9334 20.9965 93.7897 21.4466L98.6839 34.3769H90.2074L86.4232 22.7448H83.0427L80.8226 34.3769H72.7497ZM84.3545 16.2018H87.2809C89.4674 16.2018 91.0819 15.7171 92.1247 14.7478C93.2011 13.7438 93.7393 12.4283 93.7393 10.8012C93.7393 9.5549 93.3188 8.63749 92.4779 8.04896C91.6706 7.46044 90.5101 7.16617 88.9964 7.16617H86.07L84.3545 16.2018Z", fill: color }),
-        React.createElement("path", { d: "M127.207 35C125.323 35 123.591 34.6884 122.01 34.0653C120.463 33.4075 119.134 32.4728 118.024 31.2611C116.914 30.0495 116.039 28.5608 115.4 26.7953C114.795 24.9951 114.492 22.9525 114.492 20.6677C114.492 17.5173 114.963 14.6785 115.905 12.1513C116.88 9.58952 118.142 7.40851 119.689 5.60831C121.27 3.80811 123.069 2.42335 125.088 1.45401C127.14 0.48467 129.259 0 131.445 0C133.329 0 135.044 0.328883 136.592 0.98665C138.173 1.6098 139.518 2.5272 140.628 3.73887C141.738 4.95055 142.596 6.45648 143.201 8.25668C143.84 10.0223 144.16 12.0475 144.16 14.3323C144.16 17.4827 143.672 20.3388 142.697 22.9006C141.755 25.4278 140.493 27.5915 138.913 29.3917C137.365 31.1919 135.566 32.5767 133.514 33.546C131.462 34.5153 129.36 35 127.207 35ZM127.61 27.8338C128.552 27.8338 129.511 27.5223 130.486 26.8991C131.462 26.276 132.353 25.3932 133.161 24.2507C133.968 23.1083 134.624 21.7409 135.128 20.1484C135.633 18.5559 135.885 16.7903 135.885 14.8516C135.885 12.3937 135.448 10.5069 134.573 9.1914C133.732 7.84125 132.555 7.16617 131.041 7.16617C130.1 7.16617 129.141 7.47775 128.165 8.10089C127.19 8.72404 126.299 9.60682 125.491 10.7493C124.684 11.8917 124.028 13.2591 123.524 14.8516C123.019 16.4441 122.767 18.2097 122.767 20.1484C122.767 22.6063 123.187 24.5104 124.028 25.8605C124.903 27.1761 126.097 27.8338 127.61 27.8338Z", fill: color }),
-        React.createElement("path", { d: "M156.114 34.3769L162.673 0.623147H170.746L165.499 27.4184H177.406L176.094 34.3769H156.114Z", fill: color }),
-        React.createElement("path", { d: "M202.047 35C200.163 35 198.431 34.6884 196.85 34.0653C195.303 33.4075 193.974 32.4728 192.864 31.2611C191.754 30.0495 190.879 28.5608 190.24 26.7953C189.635 24.9951 189.332 22.9525 189.332 20.6677C189.332 17.5173 189.803 14.6785 190.745 12.1513C191.72 9.58952 192.982 7.40851 194.529 5.60831C196.11 3.80811 197.909 2.42335 199.928 1.45401C201.98 0.48467 204.099 0 206.285 0C208.169 0 209.884 0.328883 211.432 0.98665C213.013 1.6098 214.358 2.5272 215.468 3.73887C216.578 4.95055 217.436 6.45648 218.041 8.25668C218.68 10.0223 219 12.0475 219 14.3323C219 17.4827 218.512 20.3388 217.537 22.9006C216.595 25.4278 215.334 27.5915 213.753 29.3917C212.205 31.1919 210.406 32.5767 208.354 33.546C206.302 34.5153 204.2 35 202.047 35ZM202.451 27.8338C203.392 27.8338 204.351 27.5223 205.326 26.8991C206.302 26.276 207.193 25.3932 208.001 24.2507C208.808 23.1083 209.464 21.7409 209.968 20.1484C210.473 18.5559 210.725 16.7903 210.725 14.8516C210.725 12.3937 210.288 10.5069 209.413 9.1914C208.572 7.84125 207.395 7.16617 205.882 7.16617C204.94 7.16617 203.981 7.47775 203.006 8.10089C202.03 8.72404 201.139 9.60682 200.331 10.7493C199.524 11.8917 198.868 13.2591 198.364 14.8516C197.859 16.4441 197.607 18.2097 197.607 20.1484C197.607 22.6063 198.027 24.5104 198.868 25.8605C199.743 27.1761 200.937 27.8338 202.451 27.8338Z", fill: color })));
-};
-
-var Text = styled__default.span(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var fontWeight = _a.fontWeight;
-    return fontWeight && "font-weight: " + fontWeight + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var lineHeight = _a.lineHeight;
-    return lineHeight && "line-height: " + lineHeight + ";";
-}, function (_a) {
-    var fontSize = _a.fontSize;
-    return fontSize && "font-size: " + fontSize + ";";
-}, function (_a) {
-    var italic = _a.italic;
-    return italic && "font-size: italic;";
-}, function (_a) {
-    var textTransform = _a.textTransform;
-    return textTransform && "text-transform: " + textTransform + ";";
-});
-var P1 = styled__default.p(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.p1;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return !!textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.p1;
-});
-var P2 = styled__default.p(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.p2;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.p2;
-});
-var H6 = styled__default.h6(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.h6;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.h6;
-});
-var H5 = styled__default.h5(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.h5;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.h5;
-});
-var H4 = styled__default.h4(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.h4;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.h4;
-});
-var H3 = styled__default.h3(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.h3;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.h3;
-});
-var H2 = styled__default.h2(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.h2;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.h2;
-});
-var H1 = styled__default.h1(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.web.h1;
-}, function (_a) {
-    var theme = _a.theme, color = _a.color;
-    return color && "color: " + theme.colors[color] + ";";
-}, function (_a) {
-    var textAlign = _a.textAlign;
-    return textAlign && "text-align: " + textAlign + ";";
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.media.phoneOnly;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.typeScale.mobile.h1;
-});
-var templateObject_1$2, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
-
-var TextInput = styled__default.input(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  height: 56px;\n  width: 100%;\n  padding-left: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  height: 56px;\n  width: 100%;\n  padding-left: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"])), function (_a) {
-    var theme = _a.theme, error = _a.error;
-    return (error ? theme.colors.health30 : theme.colors.gray30);
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.colors.gray45;
-}, function (_a) {
-    var theme = _a.theme, error = _a.error;
-    return (error ? theme.colors.health30 : theme.colors.gray60);
-}, function (_a) {
-    var theme = _a.theme, error = _a.error;
-    return (error ? theme.colors.health30 : theme.colors.gray60);
-});
-var templateObject_1$3;
+var GlobalStyle = styled.createGlobalStyle(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1.7;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"], ["\n  ", "\n\n  html {\n    box-sizing: border-box;\n    font-size: ", "\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n  body {\n    line-height: 1.7;\n    font-family: ", ";\n    font-size: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n  ol, ul {\n    list-style: none;\n  }\n  blockquote, q {\n    quotes: none;\n  }\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n"])), normalize(), baseFontSize, primaryFont, baseFontSize);
+var templateObject_1$4;
 
 exports.Button = Button;
 exports.GlobalStyle = GlobalStyle;
@@ -1488,6 +1496,7 @@ exports.H3 = H3;
 exports.H4 = H4;
 exports.H5 = H5;
 exports.H6 = H6;
+exports.Loader = Loader;
 exports.Logo = Logo;
 exports.LogoText = LogoText;
 exports.OutlinedButton = OutlinedButton;
