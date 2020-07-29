@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import BlackCircleLogo from '../../assets/black-circle-logo.svg'
+import { Logo } from '../logo'
 
 export interface LoaderProps {}
 
 export const Loader: React.FC<LoaderProps> = () => {
-  return <LoadingIcon src={BlackCircleLogo} />
+  return (
+    <LoadingIcon>
+      <Logo color="white" width={25} />
+    </LoadingIcon>
+  )
 }
 
-const LoadingIcon = styled.img`
+const LoadingIcon = styled.div`
   animation-name: spin;
   animation-duration: 4000ms;
   animation-iteration-count: infinite;
@@ -28,5 +32,14 @@ const LoadingIcon = styled.img`
       transform: rotate(360deg);
     }
   }
+
   width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

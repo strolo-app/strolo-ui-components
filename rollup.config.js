@@ -25,7 +25,6 @@ export default {
   plugins: [
     external(),
     resolve(),
-    svg(),
     typescript({
       rollupCommonJSResolveHack: true,
       exclude: ['**/*.spec.tsx'],

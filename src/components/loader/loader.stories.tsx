@@ -8,4 +8,4 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Component = () => <Loader>children</Loader>
+export const Component = () => <Loader />
