@@ -1,15 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  error?: boolean
-}
-
-export const Select: React.FC<SelectProps> = (props) => {
-  return <StyledSelect {...props}></StyledSelect>
-}
-
-const StyledSelect = styled.select<SelectProps>`
+export const Select = styled.select<{ error?: boolean }>`
   border: 2px solid ${({ theme, error }) => (error ? theme.colors.health30 : theme.colors.gray30)};
   border-radius: 2px;
   height: 56px;
@@ -19,6 +10,7 @@ const StyledSelect = styled.select<SelectProps>`
   outline: none;
   transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;
   cursor: pointer;
+  background-color: white;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray45};

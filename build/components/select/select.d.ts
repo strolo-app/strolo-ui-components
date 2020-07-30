@@ -1,5 +1,3 @@
-import React from 'react';
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-    error?: boolean;
-}
-export declare const Select: React.FC<SelectProps>;
+export declare const Select: import("styled-components").StyledComponent<"select", import("styled-components").DefaultTheme, {
+    error?: boolean | undefined;
+}, never>;
