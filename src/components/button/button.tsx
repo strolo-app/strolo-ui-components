@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-
+import * as React from 'react'
 interface BaseButtonProps {
   size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
   fullWidth?: boolean
@@ -8,11 +8,13 @@ interface BaseButtonProps {
 interface ButtonProps extends BaseButtonProps {
   color?: 'energy' | 'health' | 'calm' | 'primary'
   disabled?: boolean
+  loading?: boolean
 }
 
 interface OutlinedButtonProps extends BaseButtonProps {
   disabled?: boolean
   color?: 'black' | 'white'
+  loading?: boolean
 }
 
 const BaseButton = styled.button<BaseButtonProps>`
@@ -78,21 +80,48 @@ const disabledButtonStyles = css`
   cursor: not-allowed;
 `
 
-export const Button = styled(BaseButton)<ButtonProps>`
-  ${({ theme, color = 'primary', disabled }) =>
-    disabled
+const loadingButtonStyles = css`
+  cursor: not-allowed;
+`
+
+const ButtonStyle = styled(BaseButton)<ButtonProps>`
+  ${({ theme, color = 'primary', disabled, loading }) =>
+    disabled && !loading
       ? disabledButtonStyles
       : `
     border: none;
     background-color: ${theme.palette[color].main};
     color: ${theme.palette[color].contrastText};
-
+    cursor: ${loading ? 'not-allowed;' : ''}
     &:focus,
     &:hover {
-      background-color: ${theme.palette[color].light};
+      background-color: ${loading ? '' : theme.palette[color].light};
     }
   `}
 `
+
+export const Button: React.FC<ButtonProps> = ({ disabled, loading, color, ...props }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  // @ts-ignore
+  const nonLoadingWidth = React.useMemo(() => {
+    if (loading && ref && ref.current) {
+      return ref.current.offsetWidth
+    }
+  }, [loading, ref])
+
+  return (
+    <ButtonStyle disabled={disabled || loading} loading={loading} {...props}>
+      {loading ? (
+        <div style={{ width: nonLoadingWidth, textAlign: 'center' }}>
+          <Spinner color={color} />
+        </div>
+      ) : (
+        <div ref={ref}>{props.children}</div>
+      )}
+    </ButtonStyle>
+  )
+}
 
 export const OutlinedButton = styled(BaseButton)<OutlinedButtonProps>`
   ${({ theme, disabled, color = 'black' }) =>
@@ -110,3 +139,21 @@ export const OutlinedButton = styled(BaseButton)<OutlinedButtonProps>`
   }
   `}
 `
+const Spinner = styled.div<ButtonProps>`
+  display: inline-block;
+  pointer-events: none;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0.2em solid transparent;
+  border-color: ${({ theme, color = 'primary' }) => theme.palette[color].light};
+  border-top-color: ${({ theme }) => theme.colors.gray10};
+  border-radius: 50%;
+  animation: loadingspin 1s linear infinite;
+
+  @keyframes loadingspin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`
+const ButtonText = styled.div<{ loading?: boolean }>``

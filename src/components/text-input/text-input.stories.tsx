@@ -9,5 +9,5 @@ export default {
 }
 
 export const Component = () => (
-  <TextInput placeholder="Placeholder" error={boolean('error', true)} />
+  <TextInput placeholder="Placeholder" error={boolean('error', false)} />
 )

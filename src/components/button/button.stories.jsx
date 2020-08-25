@@ -17,6 +17,7 @@ export const ButtonStory = () => (
     color={select('color', colorOptions, 'primary')}
     fullWidth={boolean('fullWidth', false)}
     disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
   >
     Button
   </Button>
