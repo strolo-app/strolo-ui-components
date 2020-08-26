@@ -1,3 +1,4 @@
+import React from 'react';
 interface BaseButtonProps {
     size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge';
     fullWidth?: boolean;
@@ -5,11 +6,13 @@ interface BaseButtonProps {
 interface ButtonProps extends BaseButtonProps {
     color?: 'energy' | 'health' | 'calm' | 'primary';
     disabled?: boolean;
+    loading?: boolean;
 }
 interface OutlinedButtonProps extends BaseButtonProps {
     disabled?: boolean;
-    color?: 'black' | 'white';
+    color?: 'gray0' | 'gray60';
+    loading?: boolean;
 }
-export declare const Button: import("styled-components").StyledComponent<"button", import("styled-components").DefaultTheme, BaseButtonProps & ButtonProps, never>;
-export declare const OutlinedButton: import("styled-components").StyledComponent<"button", import("styled-components").DefaultTheme, BaseButtonProps & OutlinedButtonProps, never>;
+export declare const Button: React.FC<ButtonProps>;
+export declare const OutlinedButton: React.FC<OutlinedButtonProps>;
 export {};

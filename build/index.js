@@ -4,9 +4,9 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var React = _interopDefault(require('react'));
 var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
-var React = _interopDefault(require('react'));
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -51,8 +51,8 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var BaseButton = styled__default.button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
-    "\n\n  &:active {\n    transform: scale(0.95, 0.95);\n  }\n"])), function (_a) {
+var BaseButton = styled__default.button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ", "\n"], ["\n  outline: none;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  padding: 0px 16px;\n  cursor: pointer;\n  font-style: italic;\n  font-weight: 900;\n  text-transform: uppercase;\n  transition: background-color 0.25s ease-in-out;\n  text-align: center;\n  justify-content: center;\n  ", "\n\n  ",
+    "\n"])), function (_a) {
     var fullWidth = _a.fullWidth;
     return (fullWidth ? "width: 100%;" : "width: fit-content;");
 }, function (_a) {
@@ -73,26 +73,61 @@ var BaseButton = styled__default.button(templateObject_1 || (templateObject_1 = 
 });
 var disabledButtonStyles = styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"], ["\n  border: none;\n  background-color: ", ";\n  color: ", ";\n  cursor: not-allowed;\n"])), function (_a) {
     var theme = _a.theme;
-    return theme.colors.gray10;
+    return theme.colors.gray20;
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.gray45;
 });
-var Button = styled__default(BaseButton)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
+var ButtonStyled = styled__default(BaseButton)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
     "\n"])), function (_a) {
-    var theme = _a.theme, _b = _a.color, color = _b === void 0 ? 'primary' : _b, disabled = _a.disabled;
-    return disabled
-        ? disabledButtonStyles
-        : "\n    border: none;\n    background-color: " + theme.palette[color].main + ";\n    color: " + theme.palette[color].contrastText + ";\n\n    &:focus,\n    &:hover {\n      background-color: " + theme.palette[color].light + ";\n    }\n  ";
+    var theme = _a.theme, _b = _a.color, color = _b === void 0 ? 'primary' : _b, disabled = _a.disabled, loading = _a.loading;
+    if (disabled && !loading)
+        return disabledButtonStyles;
+    else if (loading)
+        return "\n      border: none;\n      background-color: " + theme.palette[color].main + ";\n      color: " + theme.palette[color].contrastText + ";\n      cursor: " + (loading ? 'not-allowed;' : '') + "\n    ";
+    return "\n      border: none;\n      background-color: " + theme.palette[color].main + ";\n      color: " + theme.palette[color].contrastText + ";\n      cursor: " + (loading ? 'not-allowed;' : '') + "\n      &:focus,\n      &:hover {\n        background-color: " + (loading ? '' : theme.palette[color].light) + ";\n      }\n      &:active {\n        transform: scale(0.95, 0.95);\n      }\n    ";
 });
-var OutlinedButton = styled__default(BaseButton)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
+var Spinner = styled__default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: inline-block;\n  pointer-events: none;\n  width: 1.5em;\n  height: 1.5em;\n  border: 0.2em solid transparent;\n  border-color: ", ";\n  border-top-color: ", ";\n  border-radius: 50%;\n  animation: loadingspin 1s linear infinite;\n\n  @keyframes loadingspin {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n"], ["\n  display: inline-block;\n  pointer-events: none;\n  width: 1.5em;\n  height: 1.5em;\n  border: 0.2em solid transparent;\n  border-color: ", ";\n  border-top-color: ", ";\n  border-radius: 50%;\n  animation: loadingspin 1s linear infinite;\n\n  @keyframes loadingspin {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n"])), function (_a) {
+    var theme = _a.theme, _b = _a.color, color = _b === void 0 ? 'primary' : _b;
+    return theme.palette[color].light;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.gray10;
+});
+var Button = function (_a) {
+    var disabled = _a.disabled, loading = _a.loading, color = _a.color, props = __rest(_a, ["disabled", "loading", "color"]);
+    var ref = React.useRef(null);
+    var nonLoadingWidth = React.useMemo(function () {
+        if (loading && ref && ref.current) {
+            return ref.current.offsetWidth;
+        }
+        return;
+    }, [loading, ref]);
+    return (React.createElement(ButtonStyled, __assign({ disabled: disabled || loading, loading: loading, color: color }, props), loading ? (React.createElement("div", { style: { width: nonLoadingWidth, textAlign: 'center' } },
+        React.createElement(Spinner, { color: color }))) : (React.createElement("div", { ref: ref }, props.children))));
+};
+var OutlinedButtonStyled = styled__default(BaseButton)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  ", "\n"], ["\n  ",
     "\n"])), function (_a) {
-    var theme = _a.theme, disabled = _a.disabled, _b = _a.color, color = _b === void 0 ? 'black' : _b;
-    return disabled
-        ? disabledButtonStyles
-        : "\n  border: 2px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  color: " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n  background-color: rgba(0, 0, 0, 0);\n\n  &:focus,\n  &:hover {\n    border: 3px solid " + (color === 'white' ? theme.colors.gray0 : theme.palette.primary.main) + ";\n    padding: 0 15px;\n  }\n  ";
+    var theme = _a.theme, disabled = _a.disabled, loading = _a.loading, _b = _a.color, color = _b === void 0 ? 'gray60' : _b;
+    if (disabled && !loading)
+        return disabledButtonStyles;
+    else if (loading)
+        return "\n      border: 2px solid " + theme.colors[color] + ";\n      color: " + theme.colors[color] + ";\n      background-color: rgba(0, 0, 0, 0);\n      cursor: not-allowed;\n    ";
+    return "\n      border: 2px solid " + theme.colors[color] + ";\n      color: " + theme.colors[color] + ";\n      background-color: rgba(0, 0, 0, 0);\n\n      &:focus,\n      &:hover {\n        border: 3px solid " + theme.colors[color] + ";\n        padding: 0 15px;\n      }\n      &:active {\n        transform: scale(0.95, 0.95);\n      }\n    ";
 });
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var OutlinedButton = function (_a) {
+    var disabled = _a.disabled, loading = _a.loading, color = _a.color, props = __rest(_a, ["disabled", "loading", "color"]);
+    var ref = React.useRef(null);
+    var nonLoadingWidth = React.useMemo(function () {
+        if (loading && ref && ref.current) {
+            return ref.current.offsetWidth;
+        }
+        return;
+    }, [loading, ref]);
+    return (React.createElement(OutlinedButtonStyled, __assign({ disabled: disabled || loading, loading: loading }, props), loading ? (React.createElement("div", { style: { width: nonLoadingWidth, textAlign: 'center' } },
+        React.createElement(Spinner, { color: color }))) : (React.createElement("div", { ref: ref }, props.children))));
+};
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -2859,7 +2894,7 @@ var H6 = styled__default.h6(templateObject_4$2 || (templateObject_4$2 = __makeTe
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h6;
 });
-var H5 = styled__default.h5(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var H5 = styled__default.h5(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-weight: bold;\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.h5;
 }, function (_a) {
@@ -2939,7 +2974,7 @@ var H1 = styled__default.h1(templateObject_9 || (templateObject_9 = __makeTempla
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h1;
 });
-var templateObject_1$5, templateObject_2$2, templateObject_3$2, templateObject_4$2, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+var templateObject_1$5, templateObject_2$2, templateObject_3$2, templateObject_4$2, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
 var Textarea = styled__default.textarea(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  width: 100%;\n  padding: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  resize: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  width: 100%;\n  padding: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  resize: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"])), function (_a) {
     var theme = _a.theme, error = _a.error;
