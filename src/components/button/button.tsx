@@ -1,5 +1,5 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
-import * as React from 'react'
 import { Color } from '../../global/default-theme'
 
 interface BaseButtonProps {
