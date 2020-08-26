@@ -115,10 +115,11 @@ const Wrapper = styled.div`
   position: relative;
 `
 
-const Overlay = styled.div`
+const Overlay = styled.div<{ disabled?: boolean }>`
   position: absolute;
   height: 24px;
-  background-color: white;
+  background-color: ${({ theme, disabled }) =>
+    !!disabled ? theme.colors.gray10 : theme.colors.gray0};
   top: 2px;
   left: 2px;
   right: 2px;
@@ -143,15 +144,21 @@ const Span = styled.span`
 `
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ name, placeholder, style, className, ...props }, ref) => {
+  ({ name, placeholder, style, disabled, className, ...props }, ref) => {
     return (
       <Wrapper style={style} className={className}>
         {/* @ts-ignore I'm pretty sure styled component's types are off */}
-        <StyledTextarea name={name} ref={ref} placeholder={placeholder} {...props} />
+        <StyledTextarea
+          name={name}
+          ref={ref}
+          placeholder={placeholder}
+          disabled={disabled}
+          {...props}
+        />
         <Label for={name} data-content={placeholder}>
           <Span>{placeholder}</Span>
         </Label>
-        <Overlay />
+        <Overlay disabled={disabled} />
       </Wrapper>
     )
   }
