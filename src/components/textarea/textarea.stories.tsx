@@ -8,4 +8,4 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Component = () => <Textarea rows={number('rows', 3)} />
+export const Component = () => <Textarea rows={number('rows', 3)} placeholder="Text Area Input" />
