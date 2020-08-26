@@ -16,8 +16,12 @@ A home for all shared Strolo components. Let's not be savages who copy/paste com
 ## Publishing Your Changes
 
 1. Commit your changes (build artifacts will be updated as part of a pre-commit hook)
-2. `npm version <major|minor|patch>`
-3. `git push —-tags origin <branch-name>`
+2. `npm version patch`
+3. `git push origin master && git push origin --tags`
+
+##### just copy past this bad boy:
+
+`npm version patch && git push origin master && git push origin --tags`
 
 
 ## Notes
