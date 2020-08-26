@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FormValidation } from '../form-validation'
 
 export interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
   error?: string
+  helperText?: string
 }
 
 const Input = styled.input<{ error?: string; disabled?: boolean }>`
+  width: 100%;
   padding-top: 16px;
   padding-left: 14px;
   padding-right: 14px;
@@ -18,7 +21,7 @@ const Input = styled.input<{ error?: string; disabled?: boolean }>`
   outline: none;
   font-weight: 600;
   background-color: ${({ theme, disabled }) =>
-    !!disabled ? theme.colors.gray10 : theme.colors.gray0};
+    !!disabled ? theme.colors.gray20 : theme.colors.gray0};
 
   &::placeholder {
     color: rgba(0, 0, 0, 0);
@@ -97,14 +100,24 @@ const Span = styled.span`
 `
 
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ name, placeholder, ...props }, ref) => {
+  ({ name, placeholder, helperText, error, ...props }, ref) => {
     return (
       <>
         {/* @ts-ignore I'm pretty sure styled component's types are off */}
-        <Input name={name} ref={ref} placeholder={placeholder} {...props} />
+        <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
         <Label for={name} data-content={placeholder}>
           <Span>{placeholder}</Span>
         </Label>
+        {!!helperText && (
+          <FormValidation fontWeight={600} color="gray45">
+            {helperText}
+          </FormValidation>
+        )}
+        {!!error && (
+          <FormValidation fontWeight={600} color="health30">
+            {error}
+          </FormValidation>
+        )}
       </>
     )
   }

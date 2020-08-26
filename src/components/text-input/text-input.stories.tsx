@@ -13,5 +13,6 @@ export const Component = () => (
     placeholder="Placeholder"
     disabled={boolean('disabled', false)}
     error={text('error', '')}
+    helperText={text('helperText', 'This is some helper text.')}
   />
 )

@@ -1,31 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FormValidation } from '../form-validation'
 
 export interface TextareaProps extends React.HTMLProps<HTMLTextAreaElement> {
   error?: string
+  helperText?: string
 }
-
-// const StyledTextarea = styled.textarea<{ error?: boolean }>`
-//   border: 2px solid ${({ theme, error }) => (error ? theme.colors.health30 : theme.colors.gray30)};
-//   border-radius: 2px;
-//   width: 100%;
-//   padding: 16px;
-//   font-size: 1.125rem;
-//   outline: none;
-//   resize: none;
-//   transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;
-//   &::placeholder {
-//     color: ${({ theme }) => theme.colors.gray45};
-//     font-weight: 600;
-//   }
-//   &:hover {
-//     border: 2px solid ${({ theme, error }) => (error ? theme.colors.health30 : theme.colors.gray60)};
-//   }
-//   &:focus {
-//     border: 3px solid ${({ theme, error }) => (error ? theme.colors.health30 : theme.colors.gray60)};
-//     padding-left: 15px;
-//   }
-// `
 
 const StyledTextarea = styled.textarea<{ error?: string; disabled?: boolean }>`
   width: 100%;
@@ -41,7 +21,7 @@ const StyledTextarea = styled.textarea<{ error?: string; disabled?: boolean }>`
   outline: none;
   font-weight: 600;
   background-color: ${({ theme, disabled }) =>
-    !!disabled ? theme.colors.gray10 : theme.colors.gray0};
+    !!disabled ? theme.colors.gray20 : theme.colors.gray0};
   resize: none;
 
   &::placeholder {
@@ -144,22 +124,35 @@ const Span = styled.span`
 `
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ name, placeholder, style, disabled, className, ...props }, ref) => {
+  ({ name, placeholder, style, disabled, helperText, error, className, ...props }, ref) => {
     return (
-      <Wrapper style={style} className={className}>
-        {/* @ts-ignore I'm pretty sure styled component's types are off */}
-        <StyledTextarea
-          name={name}
-          ref={ref}
-          placeholder={placeholder}
-          disabled={disabled}
-          {...props}
-        />
-        <Label for={name} data-content={placeholder}>
-          <Span>{placeholder}</Span>
-        </Label>
-        <Overlay disabled={disabled} />
-      </Wrapper>
+      <>
+        <Wrapper style={style} className={className}>
+          {/* @ts-ignore I'm pretty sure styled component's types are off */}
+          <StyledTextarea
+            name={name}
+            ref={ref}
+            placeholder={placeholder}
+            disabled={disabled}
+            error={error}
+            {...props}
+          />
+          <Label for={name} data-content={placeholder}>
+            <Span>{placeholder}</Span>
+          </Label>
+          <Overlay disabled={disabled} />
+        </Wrapper>
+        {!!helperText && (
+          <FormValidation fontWeight={600} color="gray45">
+            {helperText}
+          </FormValidation>
+        )}
+        {!!error && (
+          <FormValidation fontWeight={600} color="health30">
+            {error}
+          </FormValidation>
+        )}
+      </>
     )
   }
 )
