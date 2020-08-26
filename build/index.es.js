@@ -2802,20 +2802,37 @@ var Select = styled.select(templateObject_1$3 || (templateObject_1$3 = __makeTem
 });
 var templateObject_1$3;
 
-var TextInput = styled.input(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  height: 56px;\n  width: 100%;\n  padding-left: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  height: 56px;\n  width: 100%;\n  padding-left: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"])), function (_a) {
+var Input$1 = styled.input(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  padding-top: 16px;\n  padding-left: 14px;\n  padding-right: 14px;\n  height: 56px;\n  font-size: 1rem;\n  border: 2px solid ", ";\n  border-radius: 2px;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n  caret-color: ", ";\n  outline: none;\n  font-weight: 600;\n  background-color: ", ";\n\n  &::placeholder {\n    color: rgba(0, 0, 0, 0);\n  }\n\n  &:hover {\n    ", "\n  }\n  &:focus {\n    border: 3px solid ", " !important;\n    padding-left: 13px;\n    padding-right: 13px;\n  }\n"], ["\n  padding-top: 16px;\n  padding-left: 14px;\n  padding-right: 14px;\n  height: 56px;\n  font-size: 1rem;\n  border: 2px solid ", ";\n  border-radius: 2px;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n  caret-color: ", ";\n  outline: none;\n  font-weight: 600;\n  background-color: ",
+    ";\n\n  &::placeholder {\n    color: rgba(0, 0, 0, 0);\n  }\n\n  &:hover {\n    ",
+    "\n  }\n  &:focus {\n    border: 3px solid ", " !important;\n    padding-left: 13px;\n    padding-right: 13px;\n  }\n"])), function (_a) {
     var theme = _a.theme, error = _a.error;
-    return (error ? theme.colors.health30 : theme.colors.gray30);
+    return (!!error ? theme.colors.health30 : theme.colors.gray30);
 }, function (_a) {
     var theme = _a.theme;
-    return theme.colors.gray45;
+    return theme.colors.gray50;
 }, function (_a) {
-    var theme = _a.theme, error = _a.error;
-    return (error ? theme.colors.health30 : theme.colors.gray60);
+    var theme = _a.theme, disabled = _a.disabled;
+    return !!disabled ? theme.colors.gray10 : theme.colors.gray0;
+}, function (_a) {
+    var theme = _a.theme, error = _a.error, disabled = _a.disabled;
+    return !disabled && "border: 2px solid " + (error ? theme.colors.health30 : theme.colors.gray60) + ";";
 }, function (_a) {
     var theme = _a.theme, error = _a.error;
     return (error ? theme.colors.health30 : theme.colors.gray60);
 });
-var templateObject_1$4;
+var Label = styled.label(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n  display: block;\n  position: relative;\n  max-height: 0;\n  font-weight: 600;\n  font-size: 1.125rem;\n  pointer-events: none;\n\n  &::before {\n    color: ", ";\n    content: attr(data-content);\n    display: inline-block;\n    filter: blur(0);\n    backface-visibility: hidden;\n    transform-origin: left top;\n    transition: transform 0.2s ease;\n    left: 1rem;\n    position: relative;\n  }\n\n  &::after {\n    bottom: 1rem;\n    content: '';\n    height: 0.1rem;\n    position: absolute;\n    transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),\n      opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;\n    opacity: 0;\n    left: 0;\n    top: 100%;\n    margin-top: -0.1rem;\n    transform: scale3d(0, 1, 1);\n    width: 100%;\n    background-color: var(--color__accent);\n  }\n\n  ", ":focus + &::after {\n    transform: scale3d(1, 1, 1);\n    opacity: 1;\n  }\n  ", ":placeholder-shown + &::before {\n    transform: translate3d(0, -2.62rem, 0) scale3d(1, 1, 1);\n  }\n  &::before,\n  ", ":focus + &::before {\n    transform: translate3d(0, -3.24rem, 0) scale3d(0.74, 0.74, 1);\n  }\n"], ["\n  display: block;\n  position: relative;\n  max-height: 0;\n  font-weight: 600;\n  font-size: 1.125rem;\n  pointer-events: none;\n\n  &::before {\n    color: ", ";\n    content: attr(data-content);\n    display: inline-block;\n    filter: blur(0);\n    backface-visibility: hidden;\n    transform-origin: left top;\n    transition: transform 0.2s ease;\n    left: 1rem;\n    position: relative;\n  }\n\n  &::after {\n    bottom: 1rem;\n    content: '';\n    height: 0.1rem;\n    position: absolute;\n    transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),\n      opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;\n    opacity: 0;\n    left: 0;\n    top: 100%;\n    margin-top: -0.1rem;\n    transform: scale3d(0, 1, 1);\n    width: 100%;\n    background-color: var(--color__accent);\n  }\n\n  ", ":focus + &::after {\n    transform: scale3d(1, 1, 1);\n    opacity: 1;\n  }\n  ", ":placeholder-shown + &::before {\n    transform: translate3d(0, -2.62rem, 0) scale3d(1, 1, 1);\n  }\n  &::before,\n  ", ":focus + &::before {\n    transform: translate3d(0, -3.24rem, 0) scale3d(0.74, 0.74, 1);\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.colors.gray40;
+}, Input$1, Input$1, Input$1);
+var Span = styled.span(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"], ["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"])));
+var TextInput = React.forwardRef(function (_a, ref) {
+    var name = _a.name, placeholder = _a.placeholder, props = __rest(_a, ["name", "placeholder"]);
+    return (React.createElement(React.Fragment, null,
+        React.createElement(Input$1, __assign({ name: name, ref: ref, placeholder: placeholder }, props)),
+        React.createElement(Label, { for: name, "data-content": placeholder },
+            React.createElement(Span, null, placeholder))));
+});
+var templateObject_1$4, templateObject_2$2, templateObject_3$2;
 
 var Text = styled.span(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme, color = _a.color;
@@ -2839,7 +2856,7 @@ var Text = styled.span(templateObject_1$5 || (templateObject_1$5 = __makeTemplat
     var textTransform = _a.textTransform;
     return textTransform && "text-transform: " + textTransform + ";";
 });
-var P1 = styled.p(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var P1 = styled.p(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.p1;
 }, function (_a) {
@@ -2855,7 +2872,7 @@ var P1 = styled.p(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObje
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.p1;
 });
-var P2 = styled.p(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
+var P2 = styled.p(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"], ["\n  font-size: ", ";\n  ", "\n  ", "\n  ", " {\n    font-size: ", ";\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.typography.typeScale.web.p2;
 }, function (_a) {
@@ -2967,7 +2984,7 @@ var H1 = styled.h1(templateObject_9 || (templateObject_9 = __makeTemplateObject(
     var theme = _a.theme;
     return theme.typography.typeScale.mobile.h1;
 });
-var templateObject_1$5, templateObject_2$2, templateObject_3$2, templateObject_4$2, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+var templateObject_1$5, templateObject_2$3, templateObject_3$3, templateObject_4$2, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
 var Textarea = styled.textarea(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  width: 100%;\n  padding: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  resize: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"], ["\n  border: 2px solid ", ";\n  border-radius: 2px;\n  width: 100%;\n  padding: 16px;\n  font-size: 1.125rem;\n  outline: none;\n  resize: none;\n  transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;\n  &::placeholder {\n    color: ", ";\n    font-weight: 600;\n  }\n  &:hover {\n    border: 2px solid ", ";\n  }\n  &:focus {\n    border: 3px solid ", ";\n    padding-left: 15px;\n  }\n"])), function (_a) {
     var theme = _a.theme, error = _a.error;
