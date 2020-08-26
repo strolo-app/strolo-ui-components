@@ -18,6 +18,7 @@ export const ButtonStory = () => (
     fullWidth={boolean('fullWidth', false)}
     disabled={boolean('disabled', false)}
     loading={boolean('loading', false)}
+    onClick={() => console.log('CLICKED')}
   >
     Button
   </Button>
@@ -28,6 +29,7 @@ export const OutlinedButtonStory = () => (
     size={select('size', sizeOptions, 'normal')}
     fullWidth={boolean('fullWidth', false)}
     disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
   >
     OutlinedButton
   </OutlinedButton>

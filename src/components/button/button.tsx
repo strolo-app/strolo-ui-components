@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 import * as React from 'react'
+import { Color } from '../../global/default-theme'
+
 interface BaseButtonProps {
   size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
   fullWidth?: boolean
@@ -13,7 +15,7 @@ interface ButtonProps extends BaseButtonProps {
 
 interface OutlinedButtonProps extends BaseButtonProps {
   disabled?: boolean
-  color?: 'black' | 'white'
+  color?: 'gray0' | 'gray60'
   loading?: boolean
 }
 
@@ -67,79 +69,42 @@ const BaseButton = styled.button<BaseButtonProps>`
         `
     }
   }}
-
-  &:active {
-    transform: scale(0.95, 0.95);
-  }
 `
 
 const disabledButtonStyles = css`
   border: none;
-  background-color: ${({ theme }) => theme.colors.gray10};
+  background-color: ${({ theme }) => theme.colors.gray20};
   color: ${({ theme }) => theme.colors.gray45};
   cursor: not-allowed;
 `
 
-const loadingButtonStyles = css`
-  cursor: not-allowed;
+const ButtonStyled = styled(BaseButton)<ButtonProps>`
+  ${({ theme, color = 'primary', disabled, loading }) => {
+    if (disabled && !loading) return disabledButtonStyles
+    else if (loading)
+      return `
+      border: none;
+      background-color: ${theme.palette[color].main};
+      color: ${theme.palette[color].contrastText};
+      cursor: ${loading ? 'not-allowed;' : ''}
+    `
+    return `
+      border: none;
+      background-color: ${theme.palette[color].main};
+      color: ${theme.palette[color].contrastText};
+      cursor: ${loading ? 'not-allowed;' : ''}
+      &:focus,
+      &:hover {
+        background-color: ${loading ? '' : theme.palette[color].light};
+      }
+      &:active {
+        transform: scale(0.95, 0.95);
+      }
+    `
+  }}
 `
 
-const ButtonStyle = styled(BaseButton)<ButtonProps>`
-  ${({ theme, color = 'primary', disabled, loading }) =>
-    disabled && !loading
-      ? disabledButtonStyles
-      : `
-    border: none;
-    background-color: ${theme.palette[color].main};
-    color: ${theme.palette[color].contrastText};
-    cursor: ${loading ? 'not-allowed;' : ''}
-    &:focus,
-    &:hover {
-      background-color: ${loading ? '' : theme.palette[color].light};
-    }
-  `}
-`
-
-export const Button: React.FC<ButtonProps> = ({ disabled, loading, color, ...props }) => {
-  const ref = React.useRef<HTMLDivElement>(null)
-
-  // @ts-ignore
-  const nonLoadingWidth = React.useMemo(() => {
-    if (loading && ref && ref.current) {
-      return ref.current.offsetWidth
-    }
-  }, [loading, ref])
-
-  return (
-    <ButtonStyle disabled={disabled || loading} loading={loading} {...props}>
-      {loading ? (
-        <div style={{ width: nonLoadingWidth, textAlign: 'center' }}>
-          <Spinner color={color} />
-        </div>
-      ) : (
-        <div ref={ref}>{props.children}</div>
-      )}
-    </ButtonStyle>
-  )
-}
-
-export const OutlinedButton = styled(BaseButton)<OutlinedButtonProps>`
-  ${({ theme, disabled, color = 'black' }) =>
-    disabled
-      ? disabledButtonStyles
-      : `
-  border: 2px solid ${color === 'white' ? theme.colors.gray0 : theme.palette.primary.main};
-  color: ${color === 'white' ? theme.colors.gray0 : theme.palette.primary.main};
-  background-color: rgba(0, 0, 0, 0);
-
-  &:focus,
-  &:hover {
-    border: 3px solid ${color === 'white' ? theme.colors.gray0 : theme.palette.primary.main};
-    padding: 0 15px;
-  }
-  `}
-`
-const Spinner = styled.div<ButtonProps>`
+const Spinner = styled.div<{ color: Color | ButtonProps['color'] }>`
   display: inline-block;
   pointer-events: none;
   width: 1.5em;
@@ -156,4 +121,81 @@ const Spinner = styled.div<ButtonProps>`
     }
   }
 `
-const ButtonText = styled.div<{ loading?: boolean }>``
+
+export const Button: React.FC<ButtonProps> = ({ disabled, loading, color, ...props }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  const nonLoadingWidth = React.useMemo(() => {
+    if (loading && ref && ref.current) {
+      return ref.current.offsetWidth
+    }
+    return
+  }, [loading, ref])
+
+  return (
+    <ButtonStyled disabled={disabled || loading} loading={loading} color={color} {...props}>
+      {loading ? (
+        <div style={{ width: nonLoadingWidth, textAlign: 'center' }}>
+          <Spinner color={color} />
+        </div>
+      ) : (
+        <div ref={ref}>{props.children}</div>
+      )}
+    </ButtonStyled>
+  )
+}
+
+const OutlinedButtonStyled = styled(BaseButton)<OutlinedButtonProps>`
+  ${({ theme, disabled, loading, color = 'gray60' }) => {
+    if (disabled && !loading) return disabledButtonStyles
+    else if (loading)
+      return `
+      border: 2px solid ${theme.colors[color]};
+      color: ${theme.colors[color]};
+      background-color: rgba(0, 0, 0, 0);
+      cursor: not-allowed;
+    `
+    return `
+      border: 2px solid ${theme.colors[color]};
+      color: ${theme.colors[color]};
+      background-color: rgba(0, 0, 0, 0);
+
+      &:focus,
+      &:hover {
+        border: 3px solid ${theme.colors[color]};
+        padding: 0 15px;
+      }
+      &:active {
+        transform: scale(0.95, 0.95);
+      }
+    `
+  }}
+`
+
+export const OutlinedButton: React.FC<OutlinedButtonProps> = ({
+  disabled,
+  loading,
+  color,
+  ...props
+}) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  const nonLoadingWidth = React.useMemo(() => {
+    if (loading && ref && ref.current) {
+      return ref.current.offsetWidth
+    }
+    return
+  }, [loading, ref])
+
+  return (
+    <OutlinedButtonStyled disabled={disabled || loading} loading={loading} {...props}>
+      {loading ? (
+        <div style={{ width: nonLoadingWidth, textAlign: 'center' }}>
+          <Spinner color={color} />
+        </div>
+      ) : (
+        <div ref={ref}>{props.children}</div>
+      )}
+    </OutlinedButtonStyled>
+  )
+}
