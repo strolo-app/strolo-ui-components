@@ -89,6 +89,7 @@ const Label = styled.label`
 
 const Wrapper = styled.div`
   position: relative;
+  width: 100%;
 `
 
 const Span = styled.span`
@@ -107,13 +108,11 @@ type TextInputProps = Omit<React.HTMLProps<HTMLInputElement>, 'ref' | 'as'> & Te
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   ({ style, className, name, placeholder, helperText, error, ...props }, ref) => {
     return (
-      <>
-        <Wrapper style={style} className={className}>
-          <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
-          <Label htmlFor={name} data-content={placeholder}>
-            <Span>{placeholder}</Span>
-          </Label>
-        </Wrapper>
+      <Wrapper style={style} className={className}>
+        <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
+        <Label htmlFor={name} data-content={placeholder}>
+          <Span>{placeholder}</Span>
+        </Label>
         {!!helperText && (
           <P2 fontWeight={600} color="gray45">
             {helperText}
@@ -124,7 +123,7 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             {error}
           </P2>
         )}
-      </>
+      </Wrapper>
     )
   }
 )

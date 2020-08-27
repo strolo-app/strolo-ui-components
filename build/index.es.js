@@ -2976,15 +2976,14 @@ var Label = styled.label(templateObject_2$3 || (templateObject_2$3 = __makeTempl
     var theme = _a.theme;
     return theme.colors.gray40;
 }, Input$1, Input$1, Input$1);
-var Wrapper = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
+var Wrapper = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var Span = styled.span(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"], ["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"])));
 var TextInput = React.forwardRef(function (_a, ref) {
     var style = _a.style, className = _a.className, name = _a.name, placeholder = _a.placeholder, helperText = _a.helperText, error = _a.error, props = __rest(_a, ["style", "className", "name", "placeholder", "helperText", "error"]);
-    return (React.createElement(React.Fragment, null,
-        React.createElement(Wrapper, { style: style, className: className },
-            React.createElement(Input$1, __assign({ name: name, ref: ref, placeholder: placeholder, error: error }, props)),
-            React.createElement(Label, { htmlFor: name, "data-content": placeholder },
-                React.createElement(Span, null, placeholder))),
+    return (React.createElement(Wrapper, { style: style, className: className },
+        React.createElement(Input$1, __assign({ name: name, ref: ref, placeholder: placeholder, error: error }, props)),
+        React.createElement(Label, { htmlFor: name, "data-content": placeholder },
+            React.createElement(Span, null, placeholder)),
         !!helperText && (React.createElement(P2, { fontWeight: 600, color: "gray45" }, helperText)),
         !!error && (React.createElement(P2, { fontWeight: 600, color: "health30" }, error))));
 });
@@ -3012,7 +3011,7 @@ var Label$1 = styled.label(templateObject_2$4 || (templateObject_2$4 = __makeTem
     var theme = _a.theme;
     return theme.colors.gray40;
 }, StyledTextarea, StyledTextarea, StyledTextarea);
-var Wrapper$1 = styled.div(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
+var Wrapper$1 = styled.div(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var Overlay = styled.div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  position: absolute;\n  height: 24px;\n  background-color: ", ";\n  top: 2px;\n  left: 2px;\n  right: 2px;\n  transition: top 0.25s ease-in-out, left 0.25s ease-in-out, right 0.25s ease-in-out;\n  ", ":focus ~ & {\n    top: 3px;\n    left: 3px;\n    right: 3px;\n  }\n"], ["\n  position: absolute;\n  height: 24px;\n  background-color: ",
     ";\n  top: 2px;\n  left: 2px;\n  right: 2px;\n  transition: top 0.25s ease-in-out, left 0.25s ease-in-out, right 0.25s ease-in-out;\n  ", ":focus ~ & {\n    top: 3px;\n    left: 3px;\n    right: 3px;\n  }\n"])), function (_a) {
     var theme = _a.theme, disabled = _a.disabled;
@@ -3021,12 +3020,11 @@ var Overlay = styled.div(templateObject_4$4 || (templateObject_4$4 = __makeTempl
 var Span$1 = styled.span(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"], ["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"])));
 var Textarea = React.forwardRef(function (_a, ref) {
     var name = _a.name, placeholder = _a.placeholder, style = _a.style, disabled = _a.disabled, helperText = _a.helperText, error = _a.error, className = _a.className, props = __rest(_a, ["name", "placeholder", "style", "disabled", "helperText", "error", "className"]);
-    return (React.createElement(React.Fragment, null,
-        React.createElement(Wrapper$1, { style: style, className: className },
-            React.createElement(StyledTextarea, __assign({ name: name, ref: ref, placeholder: placeholder, disabled: disabled, error: error }, props)),
-            React.createElement(Label$1, { for: name, "data-content": placeholder },
-                React.createElement(Span$1, null, placeholder)),
-            React.createElement(Overlay, { disabled: disabled })),
+    return (React.createElement(Wrapper$1, { style: style, className: className },
+        React.createElement(StyledTextarea, __assign({ name: name, ref: ref, placeholder: placeholder, disabled: disabled, error: error }, props)),
+        React.createElement(Label$1, { for: name, "data-content": placeholder },
+            React.createElement(Span$1, null, placeholder)),
+        React.createElement(Overlay, { disabled: disabled }),
         !!helperText && (React.createElement(P2, { fontWeight: 600, color: "gray45" }, helperText)),
         !!error && (React.createElement(P2, { fontWeight: 600, color: "health30" }, error))));
 });

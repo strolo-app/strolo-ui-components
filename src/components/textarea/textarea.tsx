@@ -93,6 +93,7 @@ const Label = styled.label<{ for?: string }>`
 
 const Wrapper = styled.div`
   position: relative;
+  width: 100%;
 `
 
 const Overlay = styled.div<{ disabled?: boolean }>`
@@ -128,21 +129,19 @@ type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, 'ref' | 'as'> & 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ name, placeholder, style, disabled, helperText, error, className, ...props }, ref) => {
     return (
-      <>
-        <Wrapper style={style} className={className}>
-          <StyledTextarea
-            name={name}
-            ref={ref}
-            placeholder={placeholder}
-            disabled={disabled}
-            error={error}
-            {...props}
-          />
-          <Label for={name} data-content={placeholder}>
-            <Span>{placeholder}</Span>
-          </Label>
-          <Overlay disabled={disabled} />
-        </Wrapper>
+      <Wrapper style={style} className={className}>
+        <StyledTextarea
+          name={name}
+          ref={ref}
+          placeholder={placeholder}
+          disabled={disabled}
+          error={error}
+          {...props}
+        />
+        <Label for={name} data-content={placeholder}>
+          <Span>{placeholder}</Span>
+        </Label>
+        <Overlay disabled={disabled} />
         {!!helperText && (
           <P2 fontWeight={600} color="gray45">
             {helperText}
@@ -153,7 +152,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             {error}
           </P2>
         )}
-      </>
+      </Wrapper>
     )
   }
 )
