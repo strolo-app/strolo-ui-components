@@ -1,6 +1,6 @@
 {
   "name": "@strolo-fit/ui-components",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "A template for quickly creating NPM Typescript packages",
   "main": "build/index.js",
   "module": "build/index.es.js",
