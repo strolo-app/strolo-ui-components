@@ -99,7 +99,7 @@ const Overlay = styled.div<{ disabled?: boolean }>`
   position: absolute;
   height: 24px;
   background-color: ${({ theme, disabled }) =>
-    !!disabled ? theme.colors.gray10 : theme.colors.gray0};
+    !!disabled ? theme.colors.gray20 : theme.colors.gray0};
   top: 2px;
   left: 2px;
   right: 2px;

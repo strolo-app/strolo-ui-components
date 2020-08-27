@@ -3024,7 +3024,7 @@ var Wrapper = styled__default.div(templateObject_3$4 || (templateObject_3$4 = __
 var Overlay = styled__default.div(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n  position: absolute;\n  height: 24px;\n  background-color: ", ";\n  top: 2px;\n  left: 2px;\n  right: 2px;\n  transition: top 0.25s ease-in-out, left 0.25s ease-in-out, right 0.25s ease-in-out;\n  ", ":focus ~ & {\n    top: 3px;\n    left: 3px;\n    right: 3px;\n  }\n"], ["\n  position: absolute;\n  height: 24px;\n  background-color: ",
     ";\n  top: 2px;\n  left: 2px;\n  right: 2px;\n  transition: top 0.25s ease-in-out, left 0.25s ease-in-out, right 0.25s ease-in-out;\n  ", ":focus ~ & {\n    top: 3px;\n    left: 3px;\n    right: 3px;\n  }\n"])), function (_a) {
     var theme = _a.theme, disabled = _a.disabled;
-    return !!disabled ? theme.colors.gray10 : theme.colors.gray0;
+    return !!disabled ? theme.colors.gray20 : theme.colors.gray0;
 }, StyledTextarea);
 var Span$1 = styled__default.span(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"], ["\n  border: 0;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n"])));
 var Textarea = React.forwardRef(function (_a, ref) {
