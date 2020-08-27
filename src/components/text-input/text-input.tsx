@@ -2,14 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { FormValidation } from '../form-validation'
 
-export interface TextInputProps {
+export interface TextInputStyleProps
+  extends Pick<
+    React.HTMLProps<HTMLInputElement>,
+    'name' | 'placeholder' | 'onClick' | 'onChange' | 'type' | 'disabled' | 'style' | 'className'
+  > {
   error?: string
   helperText?: string
-  placeholder?: string
-  name?: string
 }
 
-const Input = styled.input<{ error?: string; disabled?: boolean }>`
+const Input = styled.input<TextInputStyleProps>`
   width: 100%;
   padding-top: 16px;
   padding-left: 14px;
@@ -100,8 +102,9 @@ const Span = styled.span`
   position: absolute;
   width: 1px;
 `
-type Props = TextInputProps
-export const TextInput = React.forwardRef<HTMLInputElement, Props>(
+
+type TextInputProps = Omit<React.HTMLProps<HTMLInputElement>, 'ref' | 'as'> & TextInputStyleProps
+export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   ({ name, placeholder, helperText, error, ...props }, ref) => {
     return (
       <>

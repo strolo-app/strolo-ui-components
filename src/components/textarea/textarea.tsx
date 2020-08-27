@@ -2,17 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { FormValidation } from '../form-validation'
 
-export interface TextareaProps {
+export interface TextareaStyleProps {
   error?: string
   helperText?: string
-  placeholder?: string
-  name?: string
-  disabled?: boolean
-  style: { [key: string]: string | number }
-  className: string
 }
 
-const StyledTextarea = styled.textarea<{ error?: string; disabled?: boolean }>`
+const StyledTextarea = styled.textarea<TextareaStyleProps>`
   width: 100%;
   padding-top: 24px;
   padding-left: 14px;
@@ -128,12 +123,13 @@ const Span = styled.span`
   width: 1px;
 `
 
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, 'ref' | 'as'> & TextareaStyleProps
+
+export const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ name, placeholder, style, disabled, helperText, error, className, ...props }, ref) => {
     return (
       <>
         <Wrapper style={style} className={className}>
-          {/* @ts-ignore I'm pretty sure styled component's types are off */}
           <StyledTextarea
             name={name}
             ref={ref}

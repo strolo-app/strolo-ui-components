@@ -7,14 +7,12 @@ interface BaseButtonProps {
   fullWidth?: boolean
 }
 
-interface ButtonProps extends BaseButtonProps {
+interface ButtonStyleProps extends BaseButtonProps {
   color?: 'energy' | 'health' | 'calm' | 'primary'
-  disabled?: boolean
   loading?: boolean
 }
 
-interface OutlinedButtonProps extends BaseButtonProps {
-  disabled?: boolean
+interface OutlinedButtonStyleProps extends BaseButtonProps {
   color?: 'gray0' | 'gray60'
   loading?: boolean
 }
@@ -78,7 +76,7 @@ const disabledButtonStyles = css`
   cursor: not-allowed;
 `
 
-const ButtonStyled = styled(BaseButton)<ButtonProps>`
+const ButtonStyled = styled(BaseButton)<ButtonStyleProps>`
   ${({ theme, color = 'primary', disabled, loading }) => {
     if (disabled && !loading) return disabledButtonStyles
     else if (loading)
@@ -104,7 +102,7 @@ const ButtonStyled = styled(BaseButton)<ButtonProps>`
   }}
 `
 
-const Spinner = styled.div<{ color: Color | ButtonProps['color'] }>`
+const Spinner = styled.div<{ color: Color | ButtonStyleProps['color'] }>`
   display: inline-block;
   pointer-events: none;
   width: 1.5em;
@@ -122,6 +120,8 @@ const Spinner = styled.div<{ color: Color | ButtonProps['color'] }>`
   }
 `
 
+type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, 'as' | 'ref' | 'type'> &
+  ButtonStyleProps & { type?: 'button' | 'reset' | 'submit' }
 export const Button: React.FC<ButtonProps> = ({ disabled, loading, color, ...props }) => {
   const ref = React.useRef<HTMLDivElement>(null)
 
@@ -145,7 +145,7 @@ export const Button: React.FC<ButtonProps> = ({ disabled, loading, color, ...pro
   )
 }
 
-const OutlinedButtonStyled = styled(BaseButton)<OutlinedButtonProps>`
+const OutlinedButtonStyled = styled(BaseButton)<OutlinedButtonStyleProps>`
   ${({ theme, disabled, loading, color = 'gray60' }) => {
     if (disabled && !loading) return disabledButtonStyles
     else if (loading)
@@ -172,6 +172,8 @@ const OutlinedButtonStyled = styled(BaseButton)<OutlinedButtonProps>`
   }}
 `
 
+type OutlinedButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, 'as' | 'ref' | 'type'> &
+  OutlinedButtonStyleProps & { type?: 'button' | 'reset' | 'submit' }
 export const OutlinedButton: React.FC<OutlinedButtonProps> = ({
   disabled,
   loading,
