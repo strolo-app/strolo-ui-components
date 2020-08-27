@@ -56,8 +56,8 @@ var BaseButton = styled__default.button(templateObject_1 || (templateObject_1 = 
     var fullWidth = _a.fullWidth;
     return (fullWidth ? "width: 100%;" : "width: fit-content;");
 }, function (_a) {
-    var size = _a.size;
-    switch (size) {
+    var variant = _a.variant;
+    switch (variant) {
         case 'tiny':
             return "\n          height: 36px;\n          border-radius: 8px 0px;\n          font-size: 0.75rem;\n        ";
         case 'small':

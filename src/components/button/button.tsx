@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Color } from '../../global/default-theme'
 
 interface BaseButtonProps {
-  size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
+  variant?: 'tiny' | 'small' | 'normal' | 'large' | 'huge'
   fullWidth?: boolean
 }
 
@@ -32,8 +32,8 @@ const BaseButton = styled.button<BaseButtonProps>`
   justify-content: center;
   ${({ fullWidth }) => (fullWidth ? `width: 100%;` : `width: fit-content;`)}
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ variant }) => {
+    switch (variant) {
       case 'tiny':
         return `
           height: 36px;

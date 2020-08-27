@@ -1,6 +1,6 @@
 import React from 'react';
 interface BaseButtonProps {
-    size?: 'tiny' | 'small' | 'normal' | 'large' | 'huge';
+    variant?: 'tiny' | 'small' | 'normal' | 'large' | 'huge';
     fullWidth?: boolean;
 }
 interface ButtonStyleProps extends BaseButtonProps {
