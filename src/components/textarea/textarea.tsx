@@ -76,7 +76,6 @@ const Label = styled.label<{ for?: string }>`
     margin-top: -0.1rem;
     transform: scale3d(0, 1, 1);
     width: 100%;
-    background-color: blue;
   }
 
   ${StyledTextarea}:focus + &::after {
