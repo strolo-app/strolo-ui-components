@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FormValidation } from '../form-validation'
 
-export interface TextInputStyleProps
-  extends Pick<
-    React.HTMLProps<HTMLInputElement>,
-    'name' | 'placeholder' | 'onClick' | 'onChange' | 'type' | 'disabled' | 'style' | 'className'
-  > {
+export interface TextInputStyleProps {
   error?: string
   helperText?: string
 }

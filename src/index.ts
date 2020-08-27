@@ -1,6 +1,7 @@
 // All components need to be exported from this file to be available
 export * from './components/button'
 export * from './components/checkbox'
+export * from './components/form-validation'
 export * from './components/loader'
 export * from './components/logo-text'
 export * from './components/logo'
