@@ -117,7 +117,7 @@ var OutlinedButton = function (_a) {
         }
         return;
     }, [loading, ref]);
-    return (React.createElement(OutlinedButtonStyled, __assign({ disabled: disabled || loading, loading: loading }, props), loading ? (React.createElement("div", { style: { width: nonLoadingWidth, textAlign: 'center' } },
+    return (React.createElement(OutlinedButtonStyled, __assign({ disabled: disabled || loading, color: color, loading: loading }, props), loading ? (React.createElement("div", { style: { width: nonLoadingWidth, textAlign: 'center' } },
         React.createElement(Spinner, { color: color }))) : (React.createElement("div", { ref: ref }, props.children))));
 };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

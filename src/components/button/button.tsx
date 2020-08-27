@@ -190,7 +190,7 @@ export const OutlinedButton: React.FC<OutlinedButtonProps> = ({
   }, [loading, ref])
 
   return (
-    <OutlinedButtonStyled disabled={disabled || loading} loading={loading} {...props}>
+    <OutlinedButtonStyled disabled={disabled || loading} color={color} loading={loading} {...props}>
       {loading ? (
         <div style={{ width: nonLoadingWidth, textAlign: 'center' }}>
           <Spinner color={color} />
