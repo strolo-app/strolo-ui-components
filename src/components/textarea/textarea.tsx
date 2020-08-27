@@ -83,7 +83,7 @@ const Label = styled.label<{ for?: string }>`
     opacity: 1;
   }
   ${StyledTextarea}:placeholder-shown + &::before {
-    transform: translate3d(0, 0.5rem, 0) scale3d(1, 1, 1);
+    transform: translate3d(0, 0.8rem, 0) scale3d(1, 1, 1);
   }
   &::before,
   ${StyledTextarea}:focus + &::before {

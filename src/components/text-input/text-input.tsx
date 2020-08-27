@@ -79,7 +79,7 @@ const Label = styled.label`
     opacity: 1;
   }
   ${Input}:placeholder-shown + &::before {
-    transform: translate3d(0, 0.5rem, 0) scale3d(1, 1, 1);
+    transform: translate3d(0, 0.8rem, 0) scale3d(1, 1, 1);
   }
   &::before,
   ${Input}:focus + &::before {
