@@ -40,11 +40,13 @@ const Input = styled.input<TextInputStyleProps>`
 
 const Label = styled.label`
   display: block;
-  position: relative;
+  position: absolute;
+  top: 0;
   max-height: 0;
   font-weight: 600;
   font-size: 1.125rem;
   pointer-events: none;
+  z-index: 1;
 
   &::before {
     color: ${({ theme }) => theme.colors.gray40};
@@ -59,19 +61,17 @@ const Label = styled.label`
   }
 
   &::after {
-    bottom: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
     content: '';
     height: 0.1rem;
-    position: absolute;
     transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
       opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
     opacity: 0;
-    left: 0;
-    top: 100%;
     margin-top: -0.1rem;
     transform: scale3d(0, 1, 1);
     width: 100%;
-    background-color: var(--color__accent);
   }
 
   ${Input}:focus + &::after {
@@ -79,12 +79,16 @@ const Label = styled.label`
     opacity: 1;
   }
   ${Input}:placeholder-shown + &::before {
-    transform: translate3d(0, -2.62rem, 0) scale3d(1, 1, 1);
+    transform: translate3d(0, 0.5rem, 0) scale3d(1, 1, 1);
   }
   &::before,
   ${Input}:focus + &::before {
-    transform: translate3d(0, -3.24rem, 0) scale3d(0.74, 0.74, 1);
+    transform: translate3d(0, 0.2rem, 0) scale3d(0.74, 0.74, 1);
   }
+`
+
+const Wrapper = styled.div`
+  position: relative;
 `
 
 const Span = styled.span`
@@ -101,13 +105,15 @@ const Span = styled.span`
 
 type TextInputProps = Omit<React.HTMLProps<HTMLInputElement>, 'ref' | 'as'> & TextInputStyleProps
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ name, placeholder, helperText, error, ...props }, ref) => {
+  ({ style, className, name, placeholder, helperText, error, ...props }, ref) => {
     return (
       <>
-        <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
-        <Label htmlFor={name} data-content={placeholder}>
-          <Span>{placeholder}</Span>
-        </Label>
+        <Wrapper style={style} className={className}>
+          <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
+          <Label htmlFor={name} data-content={placeholder}>
+            <Span>{placeholder}</Span>
+          </Label>
+        </Wrapper>
         {!!helperText && (
           <P2 fontWeight={600} color="gray45">
             {helperText}
