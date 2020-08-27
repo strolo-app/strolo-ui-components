@@ -1,6 +1,5 @@
 export * from './components/button';
 export * from './components/checkbox';
-export * from './components/form-validation';
 export * from './components/loader';
 export * from './components/logo-text';
 export * from './components/logo';

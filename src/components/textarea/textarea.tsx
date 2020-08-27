@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FormValidation } from '../form-validation'
+import { P2 } from '../text'
 
 export interface TextareaStyleProps {
   error?: string
@@ -14,6 +14,7 @@ const StyledTextarea = styled.textarea<TextareaStyleProps>`
   padding-right: 14px;
   padding-bottom: 14px;
   font-size: 1rem;
+  margin-bottom: -8px;
   border: 2px solid ${({ theme, error }) => (!!error ? theme.colors.health30 : theme.colors.gray30)};
   border-radius: 2px;
   transition: border 0.25s ease-in-out, padding 0.25s ease-in-out;
@@ -144,14 +145,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           <Overlay disabled={disabled} />
         </Wrapper>
         {!!helperText && (
-          <FormValidation fontWeight={600} color="gray45">
+          <P2 fontWeight={600} color="gray45">
             {helperText}
-          </FormValidation>
+          </P2>
         )}
         {!!error && (
-          <FormValidation fontWeight={600} color="health30">
+          <P2 fontWeight={600} color="health30">
             {error}
-          </FormValidation>
+          </P2>
         )}
       </>
     )

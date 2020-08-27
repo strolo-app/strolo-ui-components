@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FormValidation } from '../form-validation'
+import { P2 } from '../text'
 
 export interface TextInputStyleProps {
   error?: string
@@ -109,14 +109,14 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           <Span>{placeholder}</Span>
         </Label>
         {!!helperText && (
-          <FormValidation fontWeight={600} color="gray45">
+          <P2 fontWeight={600} color="gray45">
             {helperText}
-          </FormValidation>
+          </P2>
         )}
         {!!error && (
-          <FormValidation fontWeight={600} color="health30">
+          <P2 fontWeight={600} color="health30">
             {error}
-          </FormValidation>
+          </P2>
         )}
       </>
     )
