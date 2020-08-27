@@ -2984,7 +2984,7 @@ var TextInput = React.forwardRef(function (_a, ref) {
     var name = _a.name, placeholder = _a.placeholder, helperText = _a.helperText, error = _a.error, props = __rest(_a, ["name", "placeholder", "helperText", "error"]);
     return (React.createElement(React.Fragment, null,
         React.createElement(Input$1, __assign({ name: name, ref: ref, placeholder: placeholder, error: error }, props)),
-        React.createElement(Label, { for: name, "data-content": placeholder },
+        React.createElement(Label, { htmlFor: name, "data-content": placeholder },
             React.createElement(Span, null, placeholder)),
         !!helperText && (React.createElement(FormValidation, { fontWeight: 600, color: "gray45" }, helperText)),
         !!error && (React.createElement(FormValidation, { fontWeight: 600, color: "health30" }, error))));

@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { FormValidation } from '../form-validation'
 
-export interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
+export interface TextInputProps {
   error?: string
   helperText?: string
+  placeholder?: string
+  name?: string
 }
 
 const Input = styled.input<{ error?: string; disabled?: boolean }>`
@@ -38,7 +40,7 @@ const Input = styled.input<{ error?: string; disabled?: boolean }>`
   }
 `
 
-const Label = styled.label<{ for?: string }>`
+const Label = styled.label`
   display: block;
   position: relative;
   max-height: 0;
@@ -98,14 +100,13 @@ const Span = styled.span`
   position: absolute;
   width: 1px;
 `
-
-export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+type Props = TextInputProps
+export const TextInput = React.forwardRef<HTMLInputElement, Props>(
   ({ name, placeholder, helperText, error, ...props }, ref) => {
     return (
       <>
-        {/* @ts-ignore I'm pretty sure styled component's types are off */}
         <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
-        <Label for={name} data-content={placeholder}>
+        <Label htmlFor={name} data-content={placeholder}>
           <Span>{placeholder}</Span>
         </Label>
         {!!helperText && (

@@ -2,9 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { FormValidation } from '../form-validation'
 
-export interface TextareaProps extends React.HTMLProps<HTMLTextAreaElement> {
+export interface TextareaProps {
   error?: string
   helperText?: string
+  placeholder?: string
+  name?: string
+  disabled?: boolean
+  style: { [key: string]: string | number }
+  className: string
 }
 
 const StyledTextarea = styled.textarea<{ error?: string; disabled?: boolean }>`
