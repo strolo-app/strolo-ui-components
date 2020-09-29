@@ -5,7 +5,7 @@ import { P2 } from '../text'
 export interface TextInputStyleProps {
   error?: string
   helperText?: string
-  endAdornment?: React.ReactElement
+  endAdornment?: React.ReactNode
 }
 
 const Input = styled.input<TextInputStyleProps>`
