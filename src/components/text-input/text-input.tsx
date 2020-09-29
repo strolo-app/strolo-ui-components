@@ -5,13 +5,14 @@ import { P2 } from '../text'
 export interface TextInputStyleProps {
   error?: string
   helperText?: string
+  endAdornment?: React.ReactElement
 }
 
 const Input = styled.input<TextInputStyleProps>`
   width: 100%;
   padding-top: 16px;
   padding-left: 14px;
-  padding-right: 14px;
+  padding-right: ${({ endAdornment }) => `${!!endAdornment ? 56 : 14}px`};
   height: 56px;
   font-size: 1rem;
   border: 2px solid ${({ theme, error }) => (!!error ? theme.colors.health30 : theme.colors.gray30)};
@@ -34,7 +35,7 @@ const Input = styled.input<TextInputStyleProps>`
   &:focus {
     border: 3px solid ${({ theme, error }) => (error ? theme.colors.health30 : theme.colors.gray60)} !important;
     padding-left: 13px;
-    padding-right: 13px;
+    padding-right: ${({ endAdornment }) => `${!!endAdornment ? 55 : 13}px`};
   }
 `
 
@@ -104,12 +105,31 @@ const Span = styled.span`
   width: 1px;
 `
 
+const EndAdornment = styled.div`
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 type TextInputProps = Omit<React.HTMLProps<HTMLInputElement>, 'ref' | 'as'> & TextInputStyleProps
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ style, className, name, placeholder, helperText, error, ...props }, ref) => {
+  ({ style, className, name, placeholder, helperText, error, endAdornment, ...props }, ref) => {
     return (
       <Wrapper style={style} className={className}>
-        <Input name={name} ref={ref} placeholder={placeholder} error={error} {...props} />
+        <Input
+          name={name}
+          ref={ref}
+          placeholder={placeholder}
+          error={error}
+          endAdornment={endAdornment}
+          {...props}
+        />
         <Label htmlFor={name} data-content={placeholder}>
           <Span>{placeholder}</Span>
         </Label>
@@ -123,6 +143,7 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             {error}
           </P2>
         )}
+        {!!endAdornment && <EndAdornment>{endAdornment}</EndAdornment>}
       </Wrapper>
     )
   }
